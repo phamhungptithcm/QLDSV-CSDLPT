@@ -28,16 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label lblKhoa;
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.cmbKhoa = new System.Windows.Forms.ComboBox();
-            this.lblLoginKhoa = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbShowPassword = new System.Windows.Forms.CheckBox();
             this.btnExit = new System.Windows.Forms.Button();
+            this.qLDSV_MAIN = new QLDSV.QLDSV_MAIN();
+            this.dspmBinding = new System.Windows.Forms.BindingSource(this.components);
+            this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSV_MAINTableAdapters.V_DS_PHANMANHTableAdapter();
+            this.tableAdapterManager = new QLDSV.QLDSV_MAINTableAdapters.TableAdapterManager();
+            this.cmbKhoa = new System.Windows.Forms.ComboBox();
+            lblKhoa = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.qLDSV_MAIN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dspmBinding)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lblKhoa
+            // 
+            lblKhoa.AutoSize = true;
+            lblKhoa.Location = new System.Drawing.Point(147, 78);
+            lblKhoa.Name = "lblKhoa";
+            lblKhoa.Size = new System.Drawing.Size(32, 13);
+            lblKhoa.TabIndex = 10;
+            lblKhoa.Text = "Khoa";
             // 
             // btnLogin
             // 
@@ -63,24 +80,6 @@
             this.txtPassword.Size = new System.Drawing.Size(296, 20);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
-            // 
-            // cmbKhoa
-            // 
-            this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(258, 79);
-            this.cmbKhoa.Name = "cmbKhoa";
-            this.cmbKhoa.Size = new System.Drawing.Size(296, 21);
-            this.cmbKhoa.TabIndex = 3;
-            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
-            // 
-            // lblLoginKhoa
-            // 
-            this.lblLoginKhoa.AutoSize = true;
-            this.lblLoginKhoa.Location = new System.Drawing.Point(150, 79);
-            this.lblLoginKhoa.Name = "lblLoginKhoa";
-            this.lblLoginKhoa.Size = new System.Drawing.Size(32, 13);
-            this.lblLoginKhoa.TabIndex = 4;
-            this.lblLoginKhoa.Text = "Khoa";
             // 
             // lblUsername
             // 
@@ -122,23 +121,55 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // qLDSV_MAIN
+            // 
+            this.qLDSV_MAIN.DataSetName = "QLDSV_MAIN";
+            this.qLDSV_MAIN.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dspmBinding
+            // 
+            this.dspmBinding.DataMember = "V_DS_PHANMANH";
+            this.dspmBinding.DataSource = this.qLDSV_MAIN;
+            // 
+            // v_DS_PHANMANHTableAdapter
+            // 
+            this.v_DS_PHANMANHTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.UpdateOrder = QLDSV.QLDSV_MAINTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // cmbKhoa
+            // 
+            this.cmbKhoa.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dspmBinding, "TENKHOA", true));
+            this.cmbKhoa.FormattingEnabled = true;
+            this.cmbKhoa.Location = new System.Drawing.Point(258, 78);
+            this.cmbKhoa.Name = "cmbKhoa";
+            this.cmbKhoa.Size = new System.Drawing.Size(296, 21);
+            this.cmbKhoa.TabIndex = 11;
+            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(lblKhoa);
+            this.Controls.Add(this.cmbKhoa);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.cbShowPassword);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.lblLoginKhoa);
-            this.Controls.Add(this.cmbKhoa);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnLogin);
             this.Name = "Login";
             this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.Login_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.qLDSV_MAIN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dspmBinding)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,12 +180,15 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.ComboBox cmbKhoa;
-        private System.Windows.Forms.Label lblLoginKhoa;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cbShowPassword;
         private System.Windows.Forms.Button btnExit;
+        private QLDSV_MAIN qLDSV_MAIN;
+        private System.Windows.Forms.BindingSource dspmBinding;
+        private QLDSV_MAINTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
+        private QLDSV_MAINTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.ComboBox cmbKhoa;
     }
 }
 
