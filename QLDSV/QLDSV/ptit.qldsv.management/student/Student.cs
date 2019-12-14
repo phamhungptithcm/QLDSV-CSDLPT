@@ -53,9 +53,12 @@ namespace QLDSV.ptit.qldsv.management.student
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*if(cmbKhoa.SelectedValue.ToString().Equals("System.Data.DataRowView")) {
-                Program.servername = cmbKhoa.SelectedValue.ToString();
-            }*/
+            if(!cmbKhoa.SelectedValue.ToString().Equals("")) {
+               // cmbKhoa.SelectedIndex = Program.mKhoa;
+                DataRowView drow = (DataRowView)cmbKhoa.SelectedItem;
+                String servername = drow.Row.Field<String>("TENSERVER");
+                Program.servername = servername;
+                }
             if(cmbKhoa.SelectedIndex != Program.mKhoa) {
                 Program.mlogin = Program.remotelogin;
                 Program.password = Program.remotepassword;
