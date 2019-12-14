@@ -74,6 +74,9 @@
             this.v_DS_PHANMANHTableAdapter = new QLDSV.QLDSV_MAINTableAdapters.V_DS_PHANMANHTableAdapter();
             this.tableAdapterManager1 = new QLDSV.QLDSV_MAINTableAdapters.TableAdapterManager();
             this.cmbKhoa = new System.Windows.Forms.ComboBox();
+            this.lOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lOPTableAdapter = new QLDSV.DS_QLDSVTableAdapters.LOPTableAdapter();
+            this.sINHVIENBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS_QLDSV)).BeginInit();
@@ -84,6 +87,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSV_MAIN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // barManager1
@@ -455,6 +460,20 @@
             this.cmbKhoa.TabIndex = 28;
             this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
             // 
+            // lOPBindingSource
+            // 
+            this.lOPBindingSource.DataMember = "LOP";
+            this.lOPBindingSource.DataSource = this.dS_QLDSV;
+            // 
+            // lOPTableAdapter
+            // 
+            this.lOPTableAdapter.ClearBeforeFill = true;
+            // 
+            // sINHVIENBindingSource1
+            // 
+            this.sINHVIENBindingSource1.DataMember = "FK_SINHVIEN_LOP";
+            this.sINHVIENBindingSource1.DataSource = this.lOPBindingSource;
+            // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,6 +505,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLDSV_MAIN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sINHVIENBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -537,5 +558,8 @@
         private QLDSV_MAINTableAdapters.V_DS_PHANMANHTableAdapter v_DS_PHANMANHTableAdapter;
         private QLDSV_MAINTableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.ComboBox cmbKhoa;
+        private System.Windows.Forms.BindingSource lOPBindingSource;
+        private DS_QLDSVTableAdapters.LOPTableAdapter lOPTableAdapter;
+        private System.Windows.Forms.BindingSource sINHVIENBindingSource1;
     }
 }

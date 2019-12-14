@@ -24,8 +24,10 @@ namespace QLDSV
             string connectionString = "Data Source=JAXZ;Initial Catalog=QLDSV;Persist Security Info=True;User ID=sa;Password=1234";
             Program.conn.ConnectionString = connectionString;
             Program.conn.Open();
-                Program.bds_dspm.DataSource = dspmBinding;
-                cmbKhoa.DataSource = Program.bds_dspm;
+            DataTable dt = new DataTable();
+            dt = Program.ExecSqlDataTable("SELECT * FROM V_DS_PHANMANH");
+            Program.bds_dspm.DataSource = dt;
+            cmbKhoa.DataSource = dt;
             cmbKhoa.DisplayMember = "TENKHOA";
             cmbKhoa.ValueMember = "TENSERVER";
             cmbKhoa.SelectedIndex = 0;
@@ -50,7 +52,7 @@ namespace QLDSV
             if (Program.KetNoi() == 0) return;
 
             Program.mKhoa = cmbKhoa.SelectedIndex;
-           
+           // Program.bds_dspm = dspmBinding;
             Program.mloginDN = Program.mlogin;
             Program.passwordDN = Program.password;
             string strLenh = "EXEC SP_DANGNHAP'" + Program.mlogin + "'";
@@ -69,14 +71,14 @@ namespace QLDSV
 
             Program.mHoten = Program.myReader.GetString(1);
             Program.mGroup = Program.myReader.GetString(2);
-            
-            Program.myReader.Close();
-            Program.conn.Close();
-            //DialogResult dialog = MessageBox.Show("Giáo Viên: " + Program.mHoten + "\t-\tKhoa: " + Program.mGroup, "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
             if (Program.checkLogin())
             {
                 Close();
             }
+            Program.myReader.Close();
+            Program.conn.Close();
+            //DialogResult dialog = MessageBox.Show("Giáo Viên: " + Program.mHoten + "\t-\tKhoa: " + Program.mGroup, "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+           
         }
 
         private void btnExit_Click(object sender, EventArgs e)

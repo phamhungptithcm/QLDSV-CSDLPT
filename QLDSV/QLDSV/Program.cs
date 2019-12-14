@@ -106,7 +106,8 @@ namespace QLDSV
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Login myLogin = new Login();
+            Application.Run(myLogin);
             if (checkLogin())
             {
                 Application.Run(new Home());

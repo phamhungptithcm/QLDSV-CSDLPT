@@ -144,6 +144,8 @@
             // cmbKhoa
             // 
             this.cmbKhoa.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dspmBinding, "TENKHOA", true));
+            this.cmbKhoa.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.dspmBinding, "TENKHOA", true));
+            this.cmbKhoa.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.dspmBinding, "TENSERVER", true));
             this.cmbKhoa.FormattingEnabled = true;
             this.cmbKhoa.Location = new System.Drawing.Point(258, 78);
             this.cmbKhoa.Name = "cmbKhoa";

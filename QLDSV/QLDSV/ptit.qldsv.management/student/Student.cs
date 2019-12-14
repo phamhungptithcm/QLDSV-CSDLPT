@@ -36,31 +36,39 @@ namespace QLDSV.ptit.qldsv.management.student
                 this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                 this.sINHVIENTableAdapter.Fill(this.dS_QLDSV.SINHVIEN);
                 cmbKhoa.DataSource = Program.bds_dspm;
-                if(cmbKhoa.DataSource != null)
-                {
+                if(cmbKhoa.DataSource != null)  {
                         cmbKhoa.DisplayMember = "TENKHOA";
                         cmbKhoa.ValueMember = "TENSERVER";
                         cmbKhoa.SelectedIndex = Program.mKhoa;
                 }
-                if ("PGV".Equals(Program.mGroup.Trim()))
-                {
+                if ("PGV".Equals(Program.mGroup.Trim())) {
                      cmbKhoa.Enabled = true;
-                } else
-                {
+                } else {
                     cmbKhoa.Enabled = false;
                 }
             }
             catch (Exception) { }
 
         }
-        private void tENKHOALabel_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*if(cmbKhoa.SelectedValue.ToString().Equals("System.Data.DataRowView")) {
+                Program.servername = cmbKhoa.SelectedValue.ToString();
+            }*/
+            if(cmbKhoa.SelectedIndex != Program.mKhoa) {
+                Program.mlogin = Program.remotelogin;
+                Program.password = Program.remotepassword;
+            } else {
+                Program.mlogin = Program.mloginDN;
+                Program.password = Program.passwordDN;
+            } 
+            if(Program.KetNoi() == 0) {
 
+            } else  {
+                this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.sINHVIENTableAdapter.Fill(this.dS_QLDSV.SINHVIEN);
+            }
         }
     }
 }
