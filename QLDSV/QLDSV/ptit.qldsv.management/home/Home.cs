@@ -40,19 +40,10 @@ namespace QLDSV.ptit.qldsv.management.home
             }
         }
 
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void Home_Load(object sender, EventArgs e)
         {
-            Form f = this.CheckExists(typeof(Signup));
-            if (f == null)
-            {
-                Signup signup = new Signup();
-                signup.MdiParent = this;
-                signup.Show();
-            }
-            else
-            {
-                f.Activate();
-            }
+            barLblCurrName.Caption = Program.mHoten;
         }
+        
     }
 }
