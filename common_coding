@@ -8,3 +8,16 @@ it also association with many other table.
 - Listen data in datagridview has changed yet. if it is changed, button "Save" enable to keep action save into database
 - this action the same for button "Undo" but that when it include data saved in db
 
+
+
+
+II. UI
+1. Font Family
+- We will use Open Sans
+  + Open Sans Regular:  this will be used in normal cases
+  + Open Sans SemiBold: This will be used in special cases like: title, label input,...
+2. Font Size
++ 13: normal cases
++ 14: special cases
+
+
