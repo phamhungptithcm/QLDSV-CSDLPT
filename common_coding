@@ -1,0 +1,10 @@
+1. Action delete
+-  Create a new column in all table that has action deleting is named "ACTIVE" with default value is true
+
+- When user click delete any record in table that only set field "ACTIVE" is false. Don't delete them out of database becase 
+it also association with many other table.
+
+2. Action save
+- Listen data in datagridview has changed yet. if it is changed, button "Save" enable to keep action save into database
+- this action the same for button "Undo" but that when it include data saved in db
+
