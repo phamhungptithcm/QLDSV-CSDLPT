@@ -1,0 +1,126 @@
+									DIEM
+														HOCPHI
+											
+			B7: Snapshort Agent			-> Unselect cái checkbox thứ 2
+			B8: Agent Security			-> Security Setting > Run under SQL... > Using the following SQL Server login > đăng nhập tài khoản sa
+			B9: Complete the Wizard		-> Nhập Publication Name > "QLSV_VT"
+			B10: The End
+	c. Tạo phân mảnh thuộc phòng kế toán --- SERVER 3
+		- Các Bước tạo phân mảnh
+			B1: Right Click on "Local Publications" -> New Publications
+			B2:	Publication Database	-> QLSV 
+			B3: Publication Type		-> Merge Publication
+			B4: Subscriber Type			-> SQL Server 2008 later
+			B5:	Articles				-> Chọn 2 Table HOCPHI, SINHVIEN
+										- HOCPHI
+											+ MASV
+											+ NIENKHOA
+											+ HOCKI
+											+ HOCPHI
+											+ SOTIENDADONG
+										- SINHVIEN
+											+ MASV
+											+ HO
+											+ TEN
+											+ MALOP
+											
+			B6: Filter Table Rows		-> Skip
+			B7: Snapshort Agent			-> Unselect cái checkbox thứ 2
+			B8: Agent Security			-> Security Setting > Run under SQL... > Using the following SQL Server login > đăng nhập tài khoản sa
+			B9: Complete the Wizard		-> Nhập Publication Name > "QLSV_PKT"
+			B10: The End
+2. Hướng dẫn tạo link server
+	- Tạo tài khoản HTKN
+		+ SERVER (muốn tạo) > Login > Right Click > New Lgin > Login Name "HTKN" > SQL server authentication > Unselect "Enforce password policy" > User Mapping > QLSV > select db_owner > OK
+	
+	a. SERVER 1 - SERVER 2 (LINK1)
+		- SERVER 1 -> SERVER 2
+			+ SERVER 1 > Server Objects > Linked Servers > Right Click > New Link Server > Link Name "LINK1" > Product name "NAMEPC/NAMESERVER2" (Tên server muốn trỏ tới) > Data Source (The same previous step)
+			> Security > Be made using security context > Đăng nhâp tài khoản HTKN > Data access, RPC, RPC Out, Use Remote Collation (true) > OK
+		- SERVER 1 -> SERVER 2
+			+ SERVER 2 > Server Objects > Linked Servers > Right Click > New Link Server > Link Name "LINK1" > Product name "NAMEPC/NAMESERVER1" (Tên server muốn trỏ tới) > Data Source (The same previous step)
+			> Security > Be made using security context > Đăng nhâp tài khoản HTKN > Data access, RPC, RPC Out, Use Remote Collation (true) > OK
+	
+	b. SERVER 1 - SERVER 3 (LINK2)
+		- SERVER 1 -> SERVER 3
+		
+		
+		- SERVER 3 -> SERVER 1
+	
+	c. SERVER 2 - SERVER 3 (LINK2)
+		- SERVER 2 -> SERVER 3
+		
+		
+		- SERVER 3 -> SERVER 2
+3. Phân quyền cơ sở dũ liệu
+	a. PGV
+		- Yêu cầu:
+			+ Nếu login thuộc nhóm PGV thì login đó có thể đăng nhập vào bất kỳ khoa nào để cập nhật bằng cách chọn tên khoa,  và tìm dữ liệu trên phân mảnh tương ứng. Login này được tạo tài khoản cho nhóm PGV,Khoa và User.
+		
+		-> Role: db_owner
+	
+	b. KHOA 
+		- Yêu cầu:
+			+ Nếu login thuộc nhóm Khoa thì ta chỉ cho phép xem dữ liệu trên khoa đó   và tìm dữ liệu trên phân mảnh tương ứng để in.  Nhóm Khoa chỉ được quyền cập nhật điểm. Nhóm Khoa chỉ được tạo tài khoản cho nhóm Khoa.
+		
+		-> Role: db_reader, db_writer 
+		
+			+ Chỉnh sửa quyền cho từng bảng role này được thao tác read trên tất cả table và write trên table DIEM
+			
+	c. PKETOAN
+		- Yêu cầu:
+			+ Nếu login thuộc nhóm PKeToan thì chỉ được quyền cập nhật dữ liệu đóng học phí của sinh viên, chỉ được tạo tài khoản mới thuộc cùng nhóm.
+		
+		-> Role: db_writer, db_reader
+		
+			+ Chỉnh sửa quyền cho từng bảng role này chỉ được thao tác read trên table SINHVIEN, HOCPHI và write trên table HOCPHI
+			
+			
+	Note: Tạo Proc để thực hiện tạo tài khoản 
+	
+		CREATE PROC SP_CREATEANEWACCOUNT
+			@LGNAME VARCHAR(50),
+			@PASS VARCHAR(50),
+			@USERNAME VARCHAR(50),
+			@ROLE VARCHAR(50)
+		AS
+		BEGIN
+		  DECLARE @RET INT
+		  EXEC @RET= SP_ADDLOGIN @LGNAME, @PASS,'QLSV'                     
+
+		  IF (@RET =1)  -- LOGIN NAME ALREADY EXITS
+			 RETURN 1
+
+		  EXEC @RET= SP_GRANTDBACCESS @LGNAME, @USERNAME
+		  IF (@RET =1)  -- USER  NAME ALREADY EXITS
+		  BEGIN
+			   EXEC SP_DROPLOGIN @LGNAME
+			   RETURN 2
+		  END
+		  EXEC sp_addrolemember @ROLE, @USERNAME
+
+		  IF @ROLE= 'PGV' 
+			BEGIN
+				EXEC sp_addsrvrolemember @LGNAME, 'sysadmin'
+				EXEC sp_addsrvrolemember @LGNAME, 'SecurityAdmin'
+				EXEC sp_addsrvrolemember @LGNAME, 'ProcessAdmin'
+			END
+
+		  IF @ROLE= 'KHOA'
+			BEGIN 
+				EXEC sp_addsrvrolemember @LGNAME, 'sysadmin'
+				EXEC sp_addsrvrolemember @LGNAME, 'SecurityAdmin'
+				EXEC sp_addsrvrolemember @LGNAME, 'ProcessAdmin'
+			END
+		  IF @ROLE= 'PKETOAN'
+			BEGIN  
+				EXEC sp_addsrvrolemember @LGNAME, 'sysadmin'
+				EXEC sp_addsrvrolemember @LGNAME, 'SecurityAdmin'
+				EXEC sp_addsrvrolemember @LGNAME, 'ProcessAdmin'
+			END
+
+		END
+		
+			
+4. Cách đẩy SP Từ Site chủ sang các site con
+	- Vô Site Chủ -> Replication -> Local Publications -> Chọn 1 Publication cần đẩy SP -> Right Click -> Properties -> Articles -> Select SP -> OK
