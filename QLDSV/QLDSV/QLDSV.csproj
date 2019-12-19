@@ -91,6 +91,10 @@
     <Compile Include="ptit.qldsv.management\student\Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
+	<Compile Include="ptit.qldsv.model\MGroup.cs" />	
+    <Compile Include="ptit.qldsv.service\HelperCommon.cs" />	
+    <Compile Include="ptit.qldsv.service\StudentService.cs" />	
+    <Compile Include="ptit.qldsv.service\ValidationService.cs" />
     <Compile Include="ptit.qldsv.management\subjects\Subjects.cs">
       <SubType>Form</SubType>
     </Compile>

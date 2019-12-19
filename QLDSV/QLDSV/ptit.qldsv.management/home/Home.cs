@@ -1,5 +1,4 @@
-﻿using QLDSV.ptit.qldsv.management.account;
-using QLDSV.ptit.qldsv.management.student;
+﻿using QLDSV.ptit.qldsv.management.student;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
