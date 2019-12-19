@@ -80,6 +80,8 @@
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
     <Compile Include="ptit.qldsv.model\MGroup.cs" />
+    <Compile Include="ptit.qldsv.service\HelperCommon.cs" />
+    <Compile Include="ptit.qldsv.service\StudentService.cs" />
     <Compile Include="QLDSV_MAIN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
