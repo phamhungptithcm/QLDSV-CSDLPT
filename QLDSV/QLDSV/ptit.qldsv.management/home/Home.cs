@@ -1,4 +1,6 @@
 ﻿using QLDSV.ptit.qldsv.management.student;
+using QLDSV.ptit.qldsv.management.subjects;
+using QLDSV.ptit.qldsv.management.scores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,10 +41,52 @@ namespace QLDSV.ptit.qldsv.management.home
             }
         }
 
+
+        private void btnClass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(Class));
+            if (frm != null) frm.Activate();
+            else
+            {
+                Class f = new Class();
+                f.MdiParent = this;
+                f.Show();
+            }
+
+
+        }
+
+        private void btnSubjects_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form s = this.CheckExists(typeof(Subjects));
+            if (s != null) s.Activate();
+            else
+            {
+                Subjects f = new Subjects();
+                f.MdiParent = this;
+                f.Show();
+            }
+
+        }
+
+        private void btnScores_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form sco = this.CheckExists(typeof(Scores));
+            if (sco != null) sco.Activate();
+            else
+            {
+                Scores f = new Scores();
+                f.MdiParent = this;
+                f.Show();
+            }
+
+        }
+
         private void Home_Load(object sender, EventArgs e)
         {
             barLblCurrName.Caption = Program.mHoten;
         }
         
+
     }
 }
