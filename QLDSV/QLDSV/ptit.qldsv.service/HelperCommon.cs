@@ -22,5 +22,40 @@ namespace QLDSV.ptit.qldsv.service
             }
             return drow;
         }
+        public static bool getListKhoa(ComboBox cmbKhoa)
+        {
+            bool result = false;
+            try
+            {
+                if (!cmbKhoa.SelectedValue.ToString().Equals(""))
+                {
+                    DataRowView drow = (DataRowView)cmbKhoa.SelectedItem;
+                    String servername = drow.Row.Field<String>("TENSERVER");
+                    Program.servername = servername;
+                }
+                if (cmbKhoa.SelectedIndex != Program.mKhoa)
+                {
+                    Program.mlogin = Program.remotelogin;
+                    Program.password = Program.remotepassword;
+                }
+                else
+                {
+                    Program.mlogin = Program.mloginDN;
+                    Program.password = Program.passwordDN;
+                }
+                if (Program.KetNoi() == 0)
+                {
+
+                }
+                else
+                {
+                    result = true;
+                }
+            } catch
+            {
+               result = false;
+            }
+            return result;
+        }
     }
 }

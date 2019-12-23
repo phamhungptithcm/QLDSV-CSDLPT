@@ -1,5 +1,4 @@
 ﻿using QLDSV.ptit.qldsv.management.home;
-using QLDSV.ptit.qldsv.model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -28,8 +27,7 @@ namespace QLDSV
         public static String mGroup = "";
         public static String mHoten = "";
         public static int mKhoa = 0;
-
-        public static List<MGroup> groups = new List<MGroup>();
+        
 
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
 
@@ -107,12 +105,6 @@ namespace QLDSV
         [STAThread]
         static void Main()
         {
-            MGroup groupKhoa = new MGroup("KHOA", "Khoa");
-            MGroup groupPGV = new MGroup("PGV", "Phòng giáo vụ");
-            MGroup groupPKT = new MGroup("PKT", "Phòng kế toán");
-            groups.Add(groupKhoa);
-            groups.Add(groupPGV);
-            groups.Add(groupPKT);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Login myLogin = new Login();

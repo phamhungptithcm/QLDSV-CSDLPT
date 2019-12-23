@@ -85,6 +85,7 @@ namespace QLDSV.ptit.qldsv.management.home
         private void Home_Load(object sender, EventArgs e)
         {
             barLblCurrName.Caption = Program.mHoten;
+            btnManageStudents.PerformClick();
         }
         
 

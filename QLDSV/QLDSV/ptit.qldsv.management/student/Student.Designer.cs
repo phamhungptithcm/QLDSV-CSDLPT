@@ -85,8 +85,7 @@
             this.barDockControl6 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl7 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl8 = new DevExpress.XtraBars.BarDockControl();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dialogTransferClass = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.grbStudentInfor = new System.Windows.Forms.GroupBox();
             this.gender = new System.Windows.Forms.Panel();
             this.rdbNu = new System.Windows.Forms.RadioButton();
             this.rdbNam = new System.Windows.Forms.RadioButton();
@@ -101,6 +100,9 @@
             this.txtMASV = new DevExpress.XtraEditors.TextEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.notifyDelete = new System.Windows.Forms.NotifyIcon(this.components);
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.ckbGender = new DevExpress.XtraEditors.CheckEdit();
+            this.cmbClass = new System.Windows.Forms.ComboBox();
             lblMASV = new System.Windows.Forms.Label();
             lblHo = new System.Windows.Forms.Label();
             lblTen = new System.Windows.Forms.Label();
@@ -121,7 +123,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager3)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grbStudentInfor.SuspendLayout();
             this.gender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkNghiHoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
@@ -134,6 +136,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbGender.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMASV
@@ -605,49 +608,43 @@
             this.barDockControl8.Manager = this.barManager3;
             this.barDockControl8.Size = new System.Drawing.Size(0, 1068);
             // 
-            // groupBox1
+            // grbStudentInfor
             // 
-            this.groupBox1.Controls.Add(this.dialogTransferClass);
-            this.groupBox1.Controls.Add(this.gender);
-            this.groupBox1.Controls.Add(lblNghiHoc);
-            this.groupBox1.Controls.Add(this.chkNghiHoc);
-            this.groupBox1.Controls.Add(lblGhiChu);
-            this.groupBox1.Controls.Add(this.txtGhiChu);
-            this.groupBox1.Controls.Add(lblDiaChi);
-            this.groupBox1.Controls.Add(this.txtDiaChi);
-            this.groupBox1.Controls.Add(lblNoiSinh);
-            this.groupBox1.Controls.Add(this.txtNoiSinh);
-            this.groupBox1.Controls.Add(lblNgaySinh);
-            this.groupBox1.Controls.Add(this.txtNgaySinh);
-            this.groupBox1.Controls.Add(lblPhai);
-            this.groupBox1.Controls.Add(lblMaLop);
-            this.groupBox1.Controls.Add(this.txtMaLop);
-            this.groupBox1.Controls.Add(lblTen);
-            this.groupBox1.Controls.Add(this.txtTen);
-            this.groupBox1.Controls.Add(lblHo);
-            this.groupBox1.Controls.Add(this.txtHo);
-            this.groupBox1.Controls.Add(lblMASV);
-            this.groupBox1.Controls.Add(this.txtMASV);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 278);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1930, 790);
-            this.groupBox1.TabIndex = 41;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin sinh viên";
-            // 
-            // dialogTransferClass
-            // 
-            this.dialogTransferClass.Location = new System.Drawing.Point(48, 63);
-            this.dialogTransferClass.Name = "dialogTransferClass";
-            this.dialogTransferClass.Size = new System.Drawing.Size(600, 150);
-            this.dialogTransferClass.TabIndex = 25;
+            this.grbStudentInfor.Controls.Add(this.cmbClass);
+            this.grbStudentInfor.Controls.Add(this.gender);
+            this.grbStudentInfor.Controls.Add(lblNghiHoc);
+            this.grbStudentInfor.Controls.Add(this.chkNghiHoc);
+            this.grbStudentInfor.Controls.Add(lblGhiChu);
+            this.grbStudentInfor.Controls.Add(this.txtGhiChu);
+            this.grbStudentInfor.Controls.Add(lblDiaChi);
+            this.grbStudentInfor.Controls.Add(this.txtDiaChi);
+            this.grbStudentInfor.Controls.Add(lblNoiSinh);
+            this.grbStudentInfor.Controls.Add(this.txtNoiSinh);
+            this.grbStudentInfor.Controls.Add(lblNgaySinh);
+            this.grbStudentInfor.Controls.Add(this.txtNgaySinh);
+            this.grbStudentInfor.Controls.Add(lblPhai);
+            this.grbStudentInfor.Controls.Add(lblMaLop);
+            this.grbStudentInfor.Controls.Add(this.txtMaLop);
+            this.grbStudentInfor.Controls.Add(lblTen);
+            this.grbStudentInfor.Controls.Add(this.txtTen);
+            this.grbStudentInfor.Controls.Add(lblHo);
+            this.grbStudentInfor.Controls.Add(this.txtHo);
+            this.grbStudentInfor.Controls.Add(lblMASV);
+            this.grbStudentInfor.Controls.Add(this.txtMASV);
+            this.grbStudentInfor.Controls.Add(this.pictureBox1);
+            this.grbStudentInfor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grbStudentInfor.Location = new System.Drawing.Point(0, 278);
+            this.grbStudentInfor.Name = "grbStudentInfor";
+            this.grbStudentInfor.Size = new System.Drawing.Size(1930, 790);
+            this.grbStudentInfor.TabIndex = 41;
+            this.grbStudentInfor.TabStop = false;
+            this.grbStudentInfor.Text = "Thông tin sinh viên";
             // 
             // gender
             // 
             this.gender.Controls.Add(this.rdbNu);
             this.gender.Controls.Add(this.rdbNam);
+            this.gender.Controls.Add(this.ckbGender);
             this.gender.Location = new System.Drawing.Point(1731, 116);
             this.gender.Name = "gender";
             this.gender.Size = new System.Drawing.Size(114, 24);
@@ -780,12 +777,33 @@
             this.notifyDelete.Text = "Đã xóa thành công";
             this.notifyDelete.Visible = true;
             // 
+            // ckbGender
+            // 
+            this.ckbGender.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "PHAI", true));
+            this.ckbGender.Enabled = false;
+            this.ckbGender.Location = new System.Drawing.Point(74, 2);
+            this.ckbGender.MenuManager = this.barManager1;
+            this.ckbGender.Name = "ckbGender";
+            this.ckbGender.Properties.Caption = "";
+            this.ckbGender.Size = new System.Drawing.Size(26, 19);
+            this.ckbGender.TabIndex = 24;
+            // 
+            // cmbClass
+            // 
+            this.cmbClass.FormattingEnabled = true;
+            this.cmbClass.Location = new System.Drawing.Point(648, 182);
+            this.cmbClass.Name = "cmbClass";
+            this.cmbClass.Size = new System.Drawing.Size(250, 21);
+            this.cmbClass.TabIndex = 24;
+            this.cmbClass.Visible = false;
+            this.cmbClass.SelectedIndexChanged += new System.EventHandler(this.cmbClass_SelectedIndexChanged);
+            // 
             // Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1930, 1068);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grbStudentInfor);
             this.Controls.Add(this.cmbKhoa);
             this.Controls.Add(this.sINHVIENGridControl);
             this.Controls.Add(this.barDockControlLeft);
@@ -814,8 +832,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager3)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grbStudentInfor.ResumeLayout(false);
+            this.grbStudentInfor.PerformLayout();
             this.gender.ResumeLayout(false);
             this.gender.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkNghiHoc.Properties)).EndInit();
@@ -829,6 +847,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckbGender.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -881,7 +900,7 @@
         private DevExpress.XtraBars.BarButtonItem btnTransferClass;
         private DevExpress.XtraBars.BarButtonItem btnSaveStudent;
         private DevExpress.XtraBars.BarButtonItem btnCancelAction;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grbStudentInfor;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel gender;
         private System.Windows.Forms.RadioButton rdbNu;
@@ -896,6 +915,8 @@
         private DevExpress.XtraEditors.TextEdit txtHo;
         private DevExpress.XtraEditors.TextEdit txtMASV;
         private System.Windows.Forms.NotifyIcon notifyDelete;
-        private DevExpress.XtraEditors.XtraScrollableControl dialogTransferClass;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private DevExpress.XtraEditors.CheckEdit ckbGender;
+        private System.Windows.Forms.ComboBox cmbClass;
     }
 }

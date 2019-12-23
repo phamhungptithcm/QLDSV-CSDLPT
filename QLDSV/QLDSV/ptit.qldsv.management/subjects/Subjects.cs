@@ -14,7 +14,6 @@ namespace QLDSV.ptit.qldsv.management.subjects
     public partial class Subjects : DevExpress.XtraEditors.XtraForm
     {
         int vitri = 0;
-        string makhoa = "";
 
         public Subjects()
         {

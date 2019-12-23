@@ -91,10 +91,8 @@
     <Compile Include="ptit.qldsv.management\student\Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
-	<Compile Include="ptit.qldsv.model\MGroup.cs" />	
-    <Compile Include="ptit.qldsv.service\HelperCommon.cs" />	
-    <Compile Include="ptit.qldsv.service\StudentService.cs" />	
-    <Compile Include="ptit.qldsv.service\ValidationService.cs" />
+    <Compile Include="ptit.qldsv.service\HelperCommon.cs" />
+    <Compile Include="ptit.qldsv.service\StudentService.cs" />
     <Compile Include="ptit.qldsv.management\subjects\Subjects.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,7 +167,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ptit.qldsv.model\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
