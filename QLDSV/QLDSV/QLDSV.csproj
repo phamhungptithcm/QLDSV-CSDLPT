@@ -54,6 +54,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_QLDSV.cs">
+      <DependentUpon>DS_QLDSV.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_QLDSV_PKT.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_QLDSV_PKT.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\account\Signup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\account\Signup.Designer.cs">
+      <DependentUpon>Signup.cs</DependentUpon>
+    </Compile>
     <Compile Include="ptit.qldsv.management\class\Class.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +105,15 @@
     <Compile Include="ptit.qldsv.management\student\Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
+    <Compile Include="ptit.qldsv.management\student\TransferClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\student\TransferClass.Designer.cs">
+      <DependentUpon>TransferClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.model\AccountInfor.cs" />
+    <Compile Include="ptit.qldsv.model\Role.cs" />
+    <Compile Include="ptit.qldsv.model\StudentInfo.cs" />
     <Compile Include="ptit.qldsv.service\HelperCommon.cs" />
     <Compile Include="ptit.qldsv.service\StudentService.cs" />
     <Compile Include="ptit.qldsv.management\subjects\Subjects.cs">
@@ -104,6 +127,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDSV_MAIN.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ptit.qldsv.management\account\Signup.resx">
+      <DependentUpon>Signup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ptit.qldsv.management\class\Class.resx">
       <DependentUpon>Class.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +155,9 @@
     <EmbeddedResource Include="ptit.qldsv.management\student\Student.resx">
       <DependentUpon>Student.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ptit.qldsv.management\student\TransferClass.resx">
+      <DependentUpon>TransferClass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ptit.qldsv.management\subjects\Subjects.resx">
       <DependentUpon>Subjects.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +171,17 @@
     </None>
     <None Include="DS_QLDSV.xss">
       <DependentUpon>DS_QLDSV.xsd</DependentUpon>
+    </None>
+    <None Include="DS_QLDSV_PKT.xsc">
+      <DependentUpon>DS_QLDSV_PKT.xsd</DependentUpon>
+    </None>
+    <None Include="DS_QLDSV_PKT.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_QLDSV_PKT.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_QLDSV_PKT.xss">
+      <DependentUpon>DS_QLDSV_PKT.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -167,9 +207,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ptit.qldsv.model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

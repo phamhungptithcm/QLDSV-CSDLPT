@@ -168,6 +168,7 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnLogin);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.qLDSV_MAIN)).EndInit();

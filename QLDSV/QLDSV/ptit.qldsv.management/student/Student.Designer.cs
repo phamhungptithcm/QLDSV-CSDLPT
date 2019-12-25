@@ -85,24 +85,21 @@
             this.barDockControl6 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl7 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl8 = new DevExpress.XtraBars.BarDockControl();
-            this.grbStudentInfor = new System.Windows.Forms.GroupBox();
-            this.gender = new System.Windows.Forms.Panel();
-            this.rdbNu = new System.Windows.Forms.RadioButton();
-            this.rdbNam = new System.Windows.Forms.RadioButton();
-            this.chkNghiHoc = new DevExpress.XtraEditors.CheckEdit();
-            this.txtGhiChu = new DevExpress.XtraEditors.TextEdit();
-            this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
-            this.txtNoiSinh = new DevExpress.XtraEditors.TextEdit();
-            this.txtNgaySinh = new DevExpress.XtraEditors.DateEdit();
-            this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
-            this.txtTen = new DevExpress.XtraEditors.TextEdit();
-            this.txtHo = new DevExpress.XtraEditors.TextEdit();
-            this.txtMASV = new DevExpress.XtraEditors.TextEdit();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.notifyDelete = new System.Windows.Forms.NotifyIcon(this.components);
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.ckbGender = new DevExpress.XtraEditors.CheckEdit();
+            this.txtMASV = new DevExpress.XtraEditors.TextEdit();
+            this.txtHo = new DevExpress.XtraEditors.TextEdit();
+            this.txtTen = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
+            this.txtNgaySinh = new DevExpress.XtraEditors.DateEdit();
+            this.txtNoiSinh = new DevExpress.XtraEditors.TextEdit();
+            this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
+            this.txtGhiChu = new DevExpress.XtraEditors.TextEdit();
+            this.chkNghiHoc = new DevExpress.XtraEditors.CheckEdit();
             this.cmbClass = new System.Windows.Forms.ComboBox();
+            this.grbStudentInfor = new System.Windows.Forms.GroupBox();
+            this.ckbGender = new DevExpress.XtraEditors.CheckEdit();
+            this.notifySuccess = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyFail = new System.Windows.Forms.NotifyIcon(this.components);
             lblMASV = new System.Windows.Forms.Label();
             lblHo = new System.Windows.Forms.Label();
             lblTen = new System.Windows.Forms.Label();
@@ -123,19 +120,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager3)).BeginInit();
-            this.grbStudentInfor.SuspendLayout();
-            this.gender.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkNghiHoc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNoiSinh.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgaySinh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoiSinh.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkNghiHoc.Properties)).BeginInit();
+            this.grbStudentInfor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckbGender.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -608,10 +604,117 @@
             this.barDockControl8.Manager = this.barManager3;
             this.barDockControl8.Size = new System.Drawing.Size(0, 1068);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(7, 121);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(500, 427);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // txtMASV
+            // 
+            this.txtMASV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "MASV", true));
+            this.txtMASV.Location = new System.Drawing.Point(648, 118);
+            this.txtMASV.MenuManager = this.barManager1;
+            this.txtMASV.Name = "txtMASV";
+            this.txtMASV.Size = new System.Drawing.Size(250, 20);
+            this.txtMASV.TabIndex = 2;
+            // 
+            // txtHo
+            // 
+            this.txtHo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "HO", true));
+            this.txtHo.Location = new System.Drawing.Point(995, 118);
+            this.txtHo.MenuManager = this.barManager1;
+            this.txtHo.Name = "txtHo";
+            this.txtHo.Size = new System.Drawing.Size(250, 20);
+            this.txtHo.TabIndex = 4;
+            // 
+            // txtTen
+            // 
+            this.txtTen.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "TEN", true));
+            this.txtTen.Location = new System.Drawing.Point(1354, 118);
+            this.txtTen.MenuManager = this.barManager1;
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(250, 20);
+            this.txtTen.TabIndex = 6;
+            // 
+            // txtMaLop
+            // 
+            this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "MALOP", true));
+            this.txtMaLop.Location = new System.Drawing.Point(648, 182);
+            this.txtMaLop.MenuManager = this.barManager1;
+            this.txtMaLop.Name = "txtMaLop";
+            this.txtMaLop.Size = new System.Drawing.Size(250, 20);
+            this.txtMaLop.TabIndex = 8;
+            // 
+            // txtNgaySinh
+            // 
+            this.txtNgaySinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "NGAYSINH", true));
+            this.txtNgaySinh.EditValue = null;
+            this.txtNgaySinh.Location = new System.Drawing.Point(1354, 182);
+            this.txtNgaySinh.MenuManager = this.barManager1;
+            this.txtNgaySinh.Name = "txtNgaySinh";
+            this.txtNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtNgaySinh.Size = new System.Drawing.Size(250, 20);
+            this.txtNgaySinh.TabIndex = 12;
+            // 
+            // txtNoiSinh
+            // 
+            this.txtNoiSinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "NOISINH", true));
+            this.txtNoiSinh.Location = new System.Drawing.Point(995, 182);
+            this.txtNoiSinh.MenuManager = this.barManager1;
+            this.txtNoiSinh.Name = "txtNoiSinh";
+            this.txtNoiSinh.Size = new System.Drawing.Size(250, 20);
+            this.txtNoiSinh.TabIndex = 14;
+            // 
+            // txtDiaChi
+            // 
+            this.txtDiaChi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "DIACHI", true));
+            this.txtDiaChi.Location = new System.Drawing.Point(648, 249);
+            this.txtDiaChi.MenuManager = this.barManager1;
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(250, 20);
+            this.txtDiaChi.TabIndex = 16;
+            // 
+            // txtGhiChu
+            // 
+            this.txtGhiChu.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "GHICHU", true));
+            this.txtGhiChu.Location = new System.Drawing.Point(995, 249);
+            this.txtGhiChu.MenuManager = this.barManager1;
+            this.txtGhiChu.Name = "txtGhiChu";
+            this.txtGhiChu.Size = new System.Drawing.Size(609, 20);
+            this.txtGhiChu.TabIndex = 18;
+            // 
+            // chkNghiHoc
+            // 
+            this.chkNghiHoc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "NGHIHOC", true));
+            this.chkNghiHoc.Location = new System.Drawing.Point(1732, 249);
+            this.chkNghiHoc.MenuManager = this.barManager1;
+            this.chkNghiHoc.Name = "chkNghiHoc";
+            this.chkNghiHoc.Properties.Caption = "Đã nghỉ học";
+            this.chkNghiHoc.Size = new System.Drawing.Size(75, 19);
+            this.chkNghiHoc.TabIndex = 20;
+            // 
+            // cmbClass
+            // 
+            this.cmbClass.FormattingEnabled = true;
+            this.cmbClass.Location = new System.Drawing.Point(648, 182);
+            this.cmbClass.Name = "cmbClass";
+            this.cmbClass.Size = new System.Drawing.Size(250, 21);
+            this.cmbClass.TabIndex = 24;
+            this.cmbClass.Visible = false;
+            this.cmbClass.SelectedIndexChanged += new System.EventHandler(this.cmbClass_SelectedIndexChanged);
+            // 
             // grbStudentInfor
             // 
+            this.grbStudentInfor.Controls.Add(this.ckbGender);
             this.grbStudentInfor.Controls.Add(this.cmbClass);
-            this.grbStudentInfor.Controls.Add(this.gender);
             this.grbStudentInfor.Controls.Add(lblNghiHoc);
             this.grbStudentInfor.Controls.Add(this.chkNghiHoc);
             this.grbStudentInfor.Controls.Add(lblGhiChu);
@@ -640,163 +743,32 @@
             this.grbStudentInfor.TabStop = false;
             this.grbStudentInfor.Text = "Thông tin sinh viên";
             // 
-            // gender
-            // 
-            this.gender.Controls.Add(this.rdbNu);
-            this.gender.Controls.Add(this.rdbNam);
-            this.gender.Controls.Add(this.ckbGender);
-            this.gender.Location = new System.Drawing.Point(1731, 116);
-            this.gender.Name = "gender";
-            this.gender.Size = new System.Drawing.Size(114, 24);
-            this.gender.TabIndex = 23;
-            // 
-            // rdbNu
-            // 
-            this.rdbNu.AutoSize = true;
-            this.rdbNu.Location = new System.Drawing.Point(74, 3);
-            this.rdbNu.Name = "rdbNu";
-            this.rdbNu.Size = new System.Drawing.Size(39, 17);
-            this.rdbNu.TabIndex = 22;
-            this.rdbNu.TabStop = true;
-            this.rdbNu.Text = "Nữ";
-            this.rdbNu.UseVisualStyleBackColor = true;
-            // 
-            // rdbNam
-            // 
-            this.rdbNam.AutoSize = true;
-            this.rdbNam.Location = new System.Drawing.Point(3, 3);
-            this.rdbNam.Name = "rdbNam";
-            this.rdbNam.Size = new System.Drawing.Size(46, 17);
-            this.rdbNam.TabIndex = 21;
-            this.rdbNam.TabStop = true;
-            this.rdbNam.Text = "Nam";
-            this.rdbNam.UseVisualStyleBackColor = true;
-            // 
-            // chkNghiHoc
-            // 
-            this.chkNghiHoc.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "NGHIHOC", true));
-            this.chkNghiHoc.Location = new System.Drawing.Point(1732, 249);
-            this.chkNghiHoc.MenuManager = this.barManager1;
-            this.chkNghiHoc.Name = "chkNghiHoc";
-            this.chkNghiHoc.Properties.Caption = "Đã nghỉ học";
-            this.chkNghiHoc.Size = new System.Drawing.Size(75, 19);
-            this.chkNghiHoc.TabIndex = 20;
-            // 
-            // txtGhiChu
-            // 
-            this.txtGhiChu.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "GHICHU", true));
-            this.txtGhiChu.Location = new System.Drawing.Point(995, 249);
-            this.txtGhiChu.MenuManager = this.barManager1;
-            this.txtGhiChu.Name = "txtGhiChu";
-            this.txtGhiChu.Size = new System.Drawing.Size(609, 20);
-            this.txtGhiChu.TabIndex = 18;
-            // 
-            // txtDiaChi
-            // 
-            this.txtDiaChi.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "DIACHI", true));
-            this.txtDiaChi.Location = new System.Drawing.Point(648, 249);
-            this.txtDiaChi.MenuManager = this.barManager1;
-            this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(250, 20);
-            this.txtDiaChi.TabIndex = 16;
-            // 
-            // txtNoiSinh
-            // 
-            this.txtNoiSinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "NOISINH", true));
-            this.txtNoiSinh.Location = new System.Drawing.Point(995, 182);
-            this.txtNoiSinh.MenuManager = this.barManager1;
-            this.txtNoiSinh.Name = "txtNoiSinh";
-            this.txtNoiSinh.Size = new System.Drawing.Size(250, 20);
-            this.txtNoiSinh.TabIndex = 14;
-            // 
-            // txtNgaySinh
-            // 
-            this.txtNgaySinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "NGAYSINH", true));
-            this.txtNgaySinh.EditValue = null;
-            this.txtNgaySinh.Location = new System.Drawing.Point(1354, 182);
-            this.txtNgaySinh.MenuManager = this.barManager1;
-            this.txtNgaySinh.Name = "txtNgaySinh";
-            this.txtNgaySinh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtNgaySinh.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtNgaySinh.Size = new System.Drawing.Size(250, 20);
-            this.txtNgaySinh.TabIndex = 12;
-            // 
-            // txtMaLop
-            // 
-            this.txtMaLop.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "MALOP", true));
-            this.txtMaLop.Location = new System.Drawing.Point(648, 182);
-            this.txtMaLop.MenuManager = this.barManager1;
-            this.txtMaLop.Name = "txtMaLop";
-            this.txtMaLop.Size = new System.Drawing.Size(250, 20);
-            this.txtMaLop.TabIndex = 8;
-            // 
-            // txtTen
-            // 
-            this.txtTen.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "TEN", true));
-            this.txtTen.Location = new System.Drawing.Point(1354, 118);
-            this.txtTen.MenuManager = this.barManager1;
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(250, 20);
-            this.txtTen.TabIndex = 6;
-            // 
-            // txtHo
-            // 
-            this.txtHo.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "HO", true));
-            this.txtHo.Location = new System.Drawing.Point(995, 118);
-            this.txtHo.MenuManager = this.barManager1;
-            this.txtHo.Name = "txtHo";
-            this.txtHo.Size = new System.Drawing.Size(250, 20);
-            this.txtHo.TabIndex = 4;
-            // 
-            // txtMASV
-            // 
-            this.txtMASV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "MASV", true));
-            this.txtMASV.Location = new System.Drawing.Point(648, 118);
-            this.txtMASV.MenuManager = this.barManager1;
-            this.txtMASV.Name = "txtMASV";
-            this.txtMASV.Size = new System.Drawing.Size(250, 20);
-            this.txtMASV.TabIndex = 2;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(7, 121);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(500, 427);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // notifyDelete
-            // 
-            this.notifyDelete.BalloonTipText = "Đã xóa thành công";
-            this.notifyDelete.BalloonTipTitle = "QLDSV";
-            this.notifyDelete.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyDelete.Icon")));
-            this.notifyDelete.Text = "Đã xóa thành công";
-            this.notifyDelete.Visible = true;
-            // 
             // ckbGender
             // 
             this.ckbGender.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "PHAI", true));
-            this.ckbGender.Enabled = false;
-            this.ckbGender.Location = new System.Drawing.Point(74, 2);
+            this.ckbGender.Location = new System.Drawing.Point(1732, 119);
             this.ckbGender.MenuManager = this.barManager1;
             this.ckbGender.Name = "ckbGender";
-            this.ckbGender.Properties.Caption = "";
-            this.ckbGender.Size = new System.Drawing.Size(26, 19);
-            this.ckbGender.TabIndex = 24;
+            this.ckbGender.Properties.Caption = "Nam";
+            this.ckbGender.Size = new System.Drawing.Size(75, 19);
+            this.ckbGender.TabIndex = 25;
+            this.ckbGender.CheckedChanged += new System.EventHandler(this.ckbGender_CheckedChanged);
             // 
-            // cmbClass
+            // notifySuccess
             // 
-            this.cmbClass.FormattingEnabled = true;
-            this.cmbClass.Location = new System.Drawing.Point(648, 182);
-            this.cmbClass.Name = "cmbClass";
-            this.cmbClass.Size = new System.Drawing.Size(250, 21);
-            this.cmbClass.TabIndex = 24;
-            this.cmbClass.Visible = false;
-            this.cmbClass.SelectedIndexChanged += new System.EventHandler(this.cmbClass_SelectedIndexChanged);
+            this.notifySuccess.BalloonTipText = "QLDSV";
+            this.notifySuccess.BalloonTipTitle = "Thành công";
+            this.notifySuccess.Icon = ((System.Drawing.Icon)(resources.GetObject("notifySuccess.Icon")));
+            this.notifySuccess.Text = "Thành công";
+            this.notifySuccess.Visible = true;
+            // 
+            // notifyFail
+            // 
+            this.notifyFail.BalloonTipText = "QLDSV";
+            this.notifyFail.BalloonTipTitle = "Thất bại";
+            this.notifyFail.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyFail.Icon")));
+            this.notifyFail.Text = "Thất bại";
+            this.notifyFail.Visible = true;
             // 
             // Student
             // 
@@ -832,21 +804,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager3)).EndInit();
-            this.grbStudentInfor.ResumeLayout(false);
-            this.grbStudentInfor.PerformLayout();
-            this.gender.ResumeLayout(false);
-            this.gender.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkNghiHoc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNoiSinh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgaySinh.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgaySinh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoiSinh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkNghiHoc.Properties)).EndInit();
+            this.grbStudentInfor.ResumeLayout(false);
+            this.grbStudentInfor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckbGender.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -901,10 +871,8 @@
         private DevExpress.XtraBars.BarButtonItem btnSaveStudent;
         private DevExpress.XtraBars.BarButtonItem btnCancelAction;
         private System.Windows.Forms.GroupBox grbStudentInfor;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel gender;
-        private System.Windows.Forms.RadioButton rdbNu;
-        private System.Windows.Forms.RadioButton rdbNam;
+        private DevExpress.XtraEditors.CheckEdit ckbGender;
+        private System.Windows.Forms.ComboBox cmbClass;
         private DevExpress.XtraEditors.CheckEdit chkNghiHoc;
         private DevExpress.XtraEditors.TextEdit txtGhiChu;
         private DevExpress.XtraEditors.TextEdit txtDiaChi;
@@ -914,9 +882,8 @@
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.TextEdit txtHo;
         private DevExpress.XtraEditors.TextEdit txtMASV;
-        private System.Windows.Forms.NotifyIcon notifyDelete;
-        private System.Windows.Forms.ColorDialog colorDialog1;
-        private DevExpress.XtraEditors.CheckEdit ckbGender;
-        private System.Windows.Forms.ComboBox cmbClass;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.NotifyIcon notifySuccess;
+        private System.Windows.Forms.NotifyIcon notifyFail;
     }
 }

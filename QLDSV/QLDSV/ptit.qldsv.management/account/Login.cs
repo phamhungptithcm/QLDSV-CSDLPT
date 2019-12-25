@@ -60,8 +60,6 @@ namespace QLDSV
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             if (Program.myReader == null) return;
             Program.myReader.Read();
-
-
             Program.username = Program.myReader.GetString(0);     // Lay user name
             if (Convert.IsDBNull(Program.username))
             {

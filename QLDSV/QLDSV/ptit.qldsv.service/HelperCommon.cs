@@ -10,6 +10,10 @@ namespace QLDSV.ptit.qldsv.service
 {
     static class HelperCommon
     {
+        public const string KHOA = "Khoa";
+        public const string PGV = "PGV";
+        public const string PKT = "PKT";
+
         public static DataRow getDataRowFromBindingSource(BindingSource bindingSource)
         {
             DataRow drow = null;

@@ -47,7 +47,7 @@ namespace QLDSV.ptit.qldsv.management.student
                     
                     cmbKhoa.SelectedIndex = Program.mKhoa;
                 }
-                if ("PGV".Equals(Program.mGroup.Trim()))
+                if (HelperCommon.PGV.Equals(Program.mGroup.Trim()))
                 {
                     cmbKhoa.Enabled = true;
                 }
@@ -59,7 +59,7 @@ namespace QLDSV.ptit.qldsv.management.student
                 this.accessActionByRole();
                 // Disable form edit
                 this.disableInputsEdit();
-                this.showGenderOfCurrentStudent();
+                resetViewGender();
 
             }
             catch (Exception) { }
@@ -75,7 +75,7 @@ namespace QLDSV.ptit.qldsv.management.student
         private void sINHVIENGridControl_Click(object sender, EventArgs e)
         {
             this.disableInputsEdit();
-            this.showGenderOfCurrentStudent();
+            this.resetViewGender();
         }
         private void btnAddNewStudent_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -103,29 +103,55 @@ namespace QLDSV.ptit.qldsv.management.student
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Hand, MessageBoxDefaultButton.Button2);
             if(result == System.Windows.Forms.DialogResult.Yes)
             {
-                sINHVIENBindingSource.RemoveCurrent();
-                notifyDelete.ShowBalloonTip(1500);
-                this.refreshDataGridViewStudent();
-                sINHVIENBindingSource.MoveFirst();
+                try {
+                    sINHVIENBindingSource.MoveFirst();
+                    this.notifySuccess.ShowBalloonTip(1500);
+                } catch (Exception) {
+                    this.notifyFail.ShowBalloonTip(1500);
+                }
+                
             }
         }
 
         private void btnTransferClass_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           
+            Program.curStudent.StudentId = studentService.getStudentId(this.sINHVIENBindingSource);
+            Program.curStudent.ClassId = studentService.getClassId(this.sINHVIENBindingSource);
+            Program.curStudent.BirthDay = studentService.getDayOfBirth(this.sINHVIENBindingSource);
+            Program.curStudent.Fullname = studentService.getFullname(this.sINHVIENBindingSource);
+            TransferClass transferClass = new TransferClass();
+            try
+            {
+                transferClass.ShowDialog();
+            }
+            catch (Exception) { }
         }
 
         private void btnSaveStudent_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(this.validateFormStudent())
+            try
             {
-                ckbGender.Checked = rdbNam.Checked == true ? true : false;
-                sINHVIENBindingSource.EndEdit();
-                this.refreshDataGridViewStudent();
-                sINHVIENBindingSource.Position = lastPosition;
-                this.accessActionByRole();
-                this.disableInputsEdit();
+                if (this.validateFormStudent())
+                {
+
+                    sINHVIENBindingSource.EndEdit();
+                    sINHVIENBindingSource.ResetCurrentItem();
+                    this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.sINHVIENTableAdapter.Update(this.dS_QLDSV.SINHVIEN);
+                    sINHVIENBindingSource.Position = lastPosition;
+                    this.acctionType = false;
+                    this.accessActionByRole();
+                    this.disableInputsEdit();
+                    txtMaLop.Visible = true;
+                    this.notifySuccess.ShowBalloonTip(1500);
+                }
             }
+            catch (Exception ex)
+            {
+                this.notifyFail.ShowBalloonTip(1500);
+                return;
+            }
+            
         }
 
         private void btnCancelAction_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -141,7 +167,7 @@ namespace QLDSV.ptit.qldsv.management.student
         }
         private void accessActionByRole()
         {
-            if (!"PGV".Equals(Program.mGroup))
+            if (!HelperCommon.PGV.Equals(Program.mGroup))
             {
                 btnEditStudent.Enabled = false;
                 btnAddNewStudent.Enabled = false;
@@ -186,14 +212,14 @@ namespace QLDSV.ptit.qldsv.management.student
             txtNoiSinh.Enabled = false;
             //rdbNam.Enabled = false;
             //rdbNu.Enabled = false;
-            gender.Enabled = false;
+            ckbGender.Enabled = false;
             chkNghiHoc.Enabled = false;
         }
         private void enableInputEditByRole()
         {
-            if ("PGV".Equals(Program.mGroup))
+            if (HelperCommon.PGV.Equals(Program.mGroup))
             {
-                txtMaLop.Visible = acctionType;
+                txtMaLop.Visible = !acctionType;
                 cmbClass.Visible = acctionType;
                 cmbClass.Enabled = acctionType;
                 txtMASV.Enabled = acctionType;
@@ -202,25 +228,15 @@ namespace QLDSV.ptit.qldsv.management.student
                 txtDiaChi.Enabled = true;
                 txtGhiChu.Enabled = true;
                 txtNgaySinh.Enabled = true;
-                txtMaLop.Enabled = true;
+                txtMaLop.Enabled = false;
                 txtNoiSinh.Enabled = true;
-                gender.Enabled = true;
+                ckbGender.Enabled = true;
                 //rdbNam.Enabled = true;
                 //rdbNu.Enabled = true;
                 chkNghiHoc.Enabled = true;
             }
         }
-
         
-        private void showGenderOfCurrentStudent()
-        {
-            bool gender = studentService.getGender(sINHVIENBindingSource);
-            rdbNam.Checked = true;
-            if (gender == false)
-            {
-                rdbNu.Checked = true;
-            }
-        }
         private void refreshDataGridViewStudent()
         {
             this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -288,6 +304,22 @@ namespace QLDSV.ptit.qldsv.management.student
                 DataRowView drow = (DataRowView)cmbClass.SelectedItem;
                 String maLop = drow.Row.Field<String>("MALOP");
                 txtMaLop.Text = maLop;
+            }
+        }
+
+        private void ckbGender_CheckedChanged(object sender, EventArgs e)
+        {
+            resetViewGender();
+        }
+        private void resetViewGender()
+        {
+            if (ckbGender.Checked == true)
+            {
+                ckbGender.Text = "Nam";
+            }
+            else
+            {
+                ckbGender.Text = "Nữ";
             }
         }
     }

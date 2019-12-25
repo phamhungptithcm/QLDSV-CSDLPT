@@ -1,4 +1,6 @@
 ﻿using QLDSV.ptit.qldsv.management.home;
+using QLDSV.ptit.qldsv.model;
+using QLDSV.ptit.qldsv.service;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,8 +29,8 @@ namespace QLDSV
         public static String mGroup = "";
         public static String mHoten = "";
         public static int mKhoa = 0;
-        
 
+        public static StudentInfo curStudent = new StudentInfo();
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
 
         public static int KetNoi()
@@ -89,7 +91,23 @@ namespace QLDSV
                 return null;
             }
         }
-
+        public static List<Role> initLisRole()
+        {
+            List<Role> roles = new List<Role>();
+            Role pGV = new Role();
+            pGV.RoleId = HelperCommon.PGV;
+            pGV.RoleName = "Phòng Giáo Vụ";
+            Role khoa = new Role();
+            khoa.RoleId = HelperCommon.KHOA;
+            khoa.RoleName = "Khoa";
+            Role pKT = new Role();
+            pKT.RoleId = HelperCommon.PKT;
+            pKT.RoleName = "Phòng Kế Toán";
+            roles.Add(pGV);
+            roles.Add(khoa);
+            roles.Add(pKT);
+            return roles;
+        }
         public static DataTable ExecSqlDataTable(String cmd)
         {
             DataTable dt = new DataTable();

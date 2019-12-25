@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QLDSV.ptit.qldsv.management.account;
 
 namespace QLDSV.ptit.qldsv.management.home
 {
@@ -87,7 +88,16 @@ namespace QLDSV.ptit.qldsv.management.home
             barLblCurrName.Caption = Program.mHoten;
             btnManageStudents.PerformClick();
         }
-        
 
+        private void btnCreateAccount_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+            Signup signup = new Signup();
+            try
+            {
+                signup.ShowDialog();
+            }
+            catch (Exception) { }
+        }
     }
 }
