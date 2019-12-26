@@ -1,9 +1,10 @@
 Lâm
 1. Nhập danh mục lớp - done
 2. Nhập môn học - done
-3. Nhập điểm - In Progress
-4. In danh sách đóng học phí của lớp - Not Start
+4. In danh sách đóng học phí của lớp - done
 5. Danh sách thi hết môn - Not Start
+7. In danh sách sinh viên - not start
+8. In bảng điểm môn học - not start
 
 Hùng
 
@@ -12,9 +13,7 @@ Hùng
 3. Tạo Form đăng kí tài khoản - done
 4. Tạo Form đăng nhập - done
 5. Nhập sinh viên - done
-  + Create SP Check MaSV đã tồn tại trong system chưa? - In Progress
 6. Đóng học phí - In Progress
-7. In danh sách sinh viên - not start
-8. In bảng điểm môn học - not start
+3. Nhập điểm - In Progress
 
 
