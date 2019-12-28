@@ -38,7 +38,7 @@ namespace QLDSV.ptit.qldsv.management.student
             {
                 dS_QLDSV.EnforceConstraints = false;
                 this.refreshDataGridViewStudent();
-                Program.bds_dspm.RemoveAt(2);
+                //Program.bds_dspm.RemoveAt(2);
                 cmbKhoa.DataSource = Program.bds_dspm;
                 if (cmbKhoa.DataSource != null)
                 {
@@ -239,8 +239,12 @@ namespace QLDSV.ptit.qldsv.management.student
         
         private void refreshDataGridViewStudent()
         {
-            this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.sINHVIENTableAdapter.Fill(this.dS_QLDSV.SINHVIEN);
+            if(Program.servername != "JAXZ\\SERVER3")
+            {
+                this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.sINHVIENTableAdapter.Fill(this.dS_QLDSV.SINHVIEN);
+            }
+            
         }
         private bool validateFormStudent()
         {

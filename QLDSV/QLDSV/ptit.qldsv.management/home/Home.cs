@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QLDSV.ptit.qldsv.management.account;
+using QLDSV.ptit.qldsv.service;
+using QLDSV.ptit.qldsv.management.school_fee;
 
 namespace QLDSV.ptit.qldsv.management.home
 {
@@ -85,6 +87,10 @@ namespace QLDSV.ptit.qldsv.management.home
 
         private void Home_Load(object sender, EventArgs e)
         {
+            if(Program.mGroup != HelperCommon.PKT)
+            {
+                btnDongHocPhi.Enabled = false;
+            }
             barLblCurrName.Caption = Program.mHoten;
             btnManageStudents.PerformClick();
         }
@@ -98,6 +104,18 @@ namespace QLDSV.ptit.qldsv.management.home
                 signup.ShowDialog();
             }
             catch (Exception) { }
+        }
+
+        private void btnDongHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form schoolFee = this.CheckExists(typeof(SchoolFee));
+            if (schoolFee != null) schoolFee.Activate();
+            else
+            {
+                SchoolFee f = new SchoolFee();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }

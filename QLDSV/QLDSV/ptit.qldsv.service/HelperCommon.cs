@@ -10,7 +10,7 @@ namespace QLDSV.ptit.qldsv.service
 {
     static class HelperCommon
     {
-        public const string KHOA = "Khoa";
+        public const string KHOA = "KHOA";
         public const string PGV = "PGV";
         public const string PKT = "PKT";
 
@@ -60,6 +60,15 @@ namespace QLDSV.ptit.qldsv.service
                result = false;
             }
             return result;
+        }
+        public static void initDataCmbFromDB(ComboBox cmb,string tableName, string displayMember, string valueMember)
+        {
+            DataTable dt = new DataTable();
+            dt = Program.ExecSqlDataTable("SELECT * FROM "+tableName);
+            cmb.DataSource = dt;
+            cmb.DisplayMember = displayMember;
+            cmb.ValueMember = valueMember;
+            cmb.SelectedIndex = 0;
         }
     }
 }

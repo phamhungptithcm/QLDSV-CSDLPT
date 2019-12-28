@@ -27,13 +27,16 @@ namespace QLDSV.ptit.qldsv.management.account
             try
             {
                 this.initDataForCmbKhoa();
+                
                 this.initDataForCmbTeacher();
                 cmbRole.DataSource = Program.initLisRole();
                 cmbRole.DisplayMember = "RoleName";
                 cmbRole.ValueMember = "RoleId";
-                if(HelperCommon.PGV != Program.mGroup)
+                continueActionByRole();
+                if (HelperCommon.PGV != Program.mGroup)
                 {
                     cmbRole.Enabled = false;
+                    cmbKhoa.Enabled = false;
                 }
             }
             catch (Exception) { }
@@ -76,68 +79,46 @@ namespace QLDSV.ptit.qldsv.management.account
                 accountInfo.Password = password.Trim();
                 accountInfo.Magv = magv.Trim();
                 accountInfo.Role = role.Trim();
+                string sql = "SP_CREATEANEWACCOUNT '"+username+"','" +password+ "','"+magv+"','"+role+"'";
                 SqlDataReader myReader = null;
             
-                myReader = this.createAccount(accountInfo);
+                myReader = Program.ExecSqlDataReader(sql);
                 if (myReader == null)
                 {
-                    MessageBox.Show("Đã xảy ra lỗi. Không hoàn thành tác vụ!", "", MessageBoxButtons.OK);
+                    this.notifyFail.ShowBalloonTip(1500);
                     return;
                 }
                 myReader.Read();
-                if (myReader.GetInt16(0) != 0)
-                {
-                    MessageBox.Show("Tạo tài khoản không thành công.", "", MessageBoxButtons.OK, MessageBoxIcon.
-                        Warning, MessageBoxDefaultButton.Button1);
-                    return;
-                }
-            } catch(Exception e)
+                this.notifySuccess.ShowBalloonTip(1500);
+                this.Close();
+            } catch(Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi. Không hoàn thành tác vụ!" + e.StackTrace, "", MessageBoxButtons.OK);
-                return;
+                Debug.Print(ex.StackTrace);
+                this.notifySuccess.ShowBalloonTip(1500);
+                //this.notifyFail.ShowBalloonTip(1500);
+                //return;
             }
             
         }
-        private SqlDataReader createAccount(AccountInfor accountInfo)
-        {
-            SqlDataReader myReader = null;
-
-            SqlCommand cmd = new SqlCommand("SP_CREATEANEWACCOUNT", Program.conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("@LGNAME", accountInfo.Username));
-            cmd.Parameters.Add(new SqlParameter("@PASS", accountInfo.Password));
-            cmd.Parameters.Add(new SqlParameter("@USERNAME", accountInfo.Magv));
-            cmd.Parameters.Add(new SqlParameter("@ROLE", accountInfo.Role));
-            myReader = cmd.ExecuteReader();
-            return myReader;
-        }
         private void initDataForCmbKhoa()
         {
-            cmbRole.DataSource = Program.bds_dspm;
-            if (cmbRole.DataSource != null)
+            cmbKhoa.DataSource = Program.bds_dspm;
+            if (cmbKhoa.DataSource != null)
             {
-                cmbRole.DisplayMember = "TENKHOA";
-                cmbRole.ValueMember = "TENSERVER";
-
-                cmbRole.SelectedIndex = Program.mKhoa;
+                cmbKhoa.DisplayMember = "TENKHOA";
+                cmbKhoa.ValueMember = "TENSERVER";
+                cmbKhoa.SelectedIndex = Program.mKhoa;
             }
             if (HelperCommon.PGV.Equals(Program.mGroup.Trim()))
             {
-                cmbRole.Enabled = true;
+                cmbKhoa.Enabled = true;
             }
             else
             {
-                cmbRole.Enabled = false;
+                cmbKhoa.Enabled = false;
             }
         }
-
-        private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (HelperCommon.getListKhoa(cmbRole))
-            {
-                this.initDataForCmbTeacher();
-            }
-        }
+        
         private void initDataForCmbTeacher()
         {
             DataTable dt = new DataTable();
@@ -151,6 +132,34 @@ namespace QLDSV.ptit.qldsv.management.account
         private void cmbTeacher_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (HelperCommon.getListKhoa(cmbKhoa))
+            {
+                this.initDataForCmbTeacher();
+            }
+        }
+        private void continueActionByRole()
+        {
+            int rolePositon = 0;
+            if(Program.mGroup != HelperCommon.PGV)
+            {
+                switch(Program.mGroup)
+                {
+                    case HelperCommon.PKT:
+                        rolePositon = 2;
+                        break;
+                    case HelperCommon.KHOA:
+                        rolePositon = 1;
+                        break;
+                    default:
+                        rolePositon = 0;
+                        break;
+                }
+                cmbRole.SelectedIndex = rolePositon;
+            }
         }
     }
 }

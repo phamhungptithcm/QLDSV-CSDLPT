@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -44,12 +46,7 @@ namespace QLDSV.ptit.qldsv.management.student
         }
         private void initDataForCmbClass()
         {
-            DataTable dt = new DataTable();
-            dt = Program.ExecSqlDataTable("SELECT * FROM LOP");
-            cmbClass.DataSource = dt;
-            cmbClass.DisplayMember = "TENLOP";
-            cmbClass.ValueMember = "MALOP";
-            cmbClass.SelectedIndex = 0;
+            HelperCommon.initDataCmbFromDB(cmbClass, "LOP", "TENLOP", "MALOP");
         }
         
         private void cmbKhoaFormChuyenLop_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,12 +60,30 @@ namespace QLDSV.ptit.qldsv.management.student
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            string maLop = "";
+            if (!cmbClass.SelectedValue.ToString().Equals(""))
+            {
+                DataRowView drow = (DataRowView)cmbClass.SelectedItem;
+                maLop = drow.Row.Field<String>("MALOP");
+            }
+            SqlDataReader myReader = null;
+            string sql = "SP_CHUYENLOP '" + Program.curStudent.StudentId + "','" + maLop+ "'";
             try
             {
-
-            } catch(Exception)
+                myReader = Program.ExecSqlDataReader(sql);
+                if (myReader == null)
+                {
+                    this.notifyFail.ShowBalloonTip(1500);
+                    return;
+                }
+                myReader.Read();
+                this.notifySuccess.ShowBalloonTip(1500);
+                this.Close();
+            } catch(Exception ex)
             {
+                Debug.Print(ex.StackTrace);
                 this.notifyFail.ShowBalloonTip(1500);
+                return;
             }
         }
     }

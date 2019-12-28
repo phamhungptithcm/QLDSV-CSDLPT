@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Signup));
             this.cmbRole = new System.Windows.Forms.ComboBox();
             this.txtConfPass = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -39,16 +41,20 @@
             this.lblConfirmPass = new System.Windows.Forms.Label();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblTeacher = new System.Windows.Forms.Label();
+            this.notifySuccess = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyFail = new System.Windows.Forms.NotifyIcon(this.components);
+            this.cmbKhoa = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblKhoa = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmbRole
             // 
             this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(240, 283);
+            this.cmbRole.Location = new System.Drawing.Point(238, 388);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(367, 21);
             this.cmbRole.TabIndex = 0;
-            this.cmbRole.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
             // 
             // txtConfPass
             // 
@@ -68,7 +74,7 @@
             // cmbTeacher
             // 
             this.cmbTeacher.FormattingEnabled = true;
-            this.cmbTeacher.Location = new System.Drawing.Point(240, 339);
+            this.cmbTeacher.Location = new System.Drawing.Point(238, 330);
             this.cmbTeacher.Name = "cmbTeacher";
             this.cmbTeacher.Size = new System.Drawing.Size(367, 21);
             this.cmbTeacher.TabIndex = 3;
@@ -84,7 +90,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(509, 415);
+            this.btnCreate.Location = new System.Drawing.Point(511, 465);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(96, 23);
             this.btnCreate.TabIndex = 5;
@@ -122,7 +128,7 @@
             // lblRole
             // 
             this.lblRole.AutoSize = true;
-            this.lblRole.Location = new System.Drawing.Point(128, 286);
+            this.lblRole.Location = new System.Drawing.Point(128, 391);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(47, 13);
             this.lblRole.TabIndex = 9;
@@ -131,17 +137,63 @@
             // lblTeacher
             // 
             this.lblTeacher.AutoSize = true;
-            this.lblTeacher.Location = new System.Drawing.Point(128, 342);
+            this.lblTeacher.Location = new System.Drawing.Point(128, 333);
             this.lblTeacher.Name = "lblTeacher";
             this.lblTeacher.Size = new System.Drawing.Size(59, 13);
             this.lblTeacher.TabIndex = 10;
             this.lblTeacher.Text = "Giảng Viên";
+            // 
+            // notifySuccess
+            // 
+            this.notifySuccess.BalloonTipText = "QLDSV";
+            this.notifySuccess.BalloonTipTitle = "Thành Công";
+            this.notifySuccess.Icon = ((System.Drawing.Icon)(resources.GetObject("notifySuccess.Icon")));
+            this.notifySuccess.Text = "Thành Công";
+            this.notifySuccess.Visible = true;
+            // 
+            // notifyFail
+            // 
+            this.notifyFail.BalloonTipText = "QLDSV";
+            this.notifyFail.BalloonTipTitle = "Thất Bại";
+            this.notifyFail.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyFail.Icon")));
+            this.notifyFail.Text = "Thất Bại";
+            this.notifyFail.Visible = true;
+            // 
+            // cmbKhoa
+            // 
+            this.cmbKhoa.FormattingEnabled = true;
+            this.cmbKhoa.Location = new System.Drawing.Point(240, 278);
+            this.cmbKhoa.Name = "cmbKhoa";
+            this.cmbKhoa.Size = new System.Drawing.Size(365, 21);
+            this.cmbKhoa.TabIndex = 11;
+            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(369, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Tạo tài khoản";
+            // 
+            // lblKhoa
+            // 
+            this.lblKhoa.AutoSize = true;
+            this.lblKhoa.Location = new System.Drawing.Point(128, 281);
+            this.lblKhoa.Name = "lblKhoa";
+            this.lblKhoa.Size = new System.Drawing.Size(32, 13);
+            this.lblKhoa.TabIndex = 13;
+            this.lblKhoa.Text = "Khoa";
             // 
             // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.lblKhoa);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbKhoa);
             this.Controls.Add(this.lblTeacher);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.lblConfirmPass);
@@ -175,5 +227,10 @@
         private System.Windows.Forms.Label lblConfirmPass;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Label lblTeacher;
+        private System.Windows.Forms.NotifyIcon notifySuccess;
+        private System.Windows.Forms.NotifyIcon notifyFail;
+        private System.Windows.Forms.ComboBox cmbKhoa;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblKhoa;
     }
 }
