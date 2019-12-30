@@ -118,6 +118,18 @@
     <Compile Include="ptit.qldsv.management\subjects\Subjects.Designer.cs">
       <DependentUpon>Subjects.cs</DependentUpon>
     </Compile>
+<Compile Include="ptit.qldsv.management\report\DongHocPhi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\report\DongHocPhi.Designer.cs">
+      <DependentUpon>DongHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\report\FormInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\report\FormInput.Designer.cs">
+      <DependentUpon>FormInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="ptit.qldsv.service\HelperCommon.cs" />
     <Compile Include="ptit.qldsv.service\StudentService.cs" />
     <Compile Include="QLDSV_MAIN.Designer.cs">
