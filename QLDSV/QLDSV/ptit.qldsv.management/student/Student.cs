@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QLDSV.ptit.qldsv.service;
 using DevExpress.XtraLayout;
+using System.Diagnostics;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace QLDSV.ptit.qldsv.management.student
 {
@@ -33,6 +35,7 @@ namespace QLDSV.ptit.qldsv.management.student
 
         private void Student_Load(object sender, EventArgs e)
         {
+            dS_QLDSV.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'dS_QLDSV.SINHVIEN' table. You can move, or remove it, as needed.
             try
             {
@@ -104,6 +107,7 @@ namespace QLDSV.ptit.qldsv.management.student
             if(result == System.Windows.Forms.DialogResult.Yes)
             {
                 try {
+                    sINHVIENBindingSource.RemoveCurrent();
                     sINHVIENBindingSource.MoveFirst();
                     this.notifySuccess.ShowBalloonTip(1500);
                 } catch (Exception) {
@@ -122,7 +126,16 @@ namespace QLDSV.ptit.qldsv.management.student
             TransferClass transferClass = new TransferClass();
             try
             {
+                int position = cmbKhoa.SelectedIndex;
+                cmbKhoa.Visible = false;
+                grbStudentInfor.Visible = false;
+                sINHVIENGridControl.Visible = false;
                 transferClass.ShowDialog();
+                cmbKhoa.SelectedIndex = position;
+                Program.servername = cmbKhoa.SelectedValue.ToString();
+                sINHVIENGridControl.Visible = true;
+                grbStudentInfor.Visible = true;
+                cmbKhoa.Visible = true;
             }
             catch (Exception) { }
         }
@@ -148,6 +161,7 @@ namespace QLDSV.ptit.qldsv.management.student
             }
             catch (Exception ex)
             {
+                Debug.Print(ex.StackTrace);
                 this.notifyFail.ShowBalloonTip(1500);
                 return;
             }
@@ -325,6 +339,13 @@ namespace QLDSV.ptit.qldsv.management.student
             {
                 ckbGender.Text = "Nữ";
             }
+        }
+
+        private void changeDisplayValueGenderAndNghiHoc(object sender)
+        {
+            GridView grvNhapDiem = sender as GridView;
+
+
         }
     }
 }

@@ -55,5 +55,16 @@ namespace QLDSV.Properties {
                 return ((string)(this["QLSVConnectionString_PKT"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JAXZ\\SERVER2;Initial Catalog=QLSV;Persist Security Info=True;User ID=" +
+            "ThuanTD;Password=1234")]
+        public string QLSVConnectionString {
+            get {
+                return ((string)(this["QLSVConnectionString"]));
+            }
+        }
     }
 }

@@ -43,15 +43,13 @@
             this.lblTeacher = new System.Windows.Forms.Label();
             this.notifySuccess = new System.Windows.Forms.NotifyIcon(this.components);
             this.notifyFail = new System.Windows.Forms.NotifyIcon(this.components);
-            this.cmbKhoa = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblKhoa = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmbRole
             // 
             this.cmbRole.FormattingEnabled = true;
-            this.cmbRole.Location = new System.Drawing.Point(238, 388);
+            this.cmbRole.Location = new System.Drawing.Point(240, 335);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Size = new System.Drawing.Size(367, 21);
             this.cmbRole.TabIndex = 0;
@@ -74,7 +72,7 @@
             // cmbTeacher
             // 
             this.cmbTeacher.FormattingEnabled = true;
-            this.cmbTeacher.Location = new System.Drawing.Point(238, 330);
+            this.cmbTeacher.Location = new System.Drawing.Point(240, 277);
             this.cmbTeacher.Name = "cmbTeacher";
             this.cmbTeacher.Size = new System.Drawing.Size(367, 21);
             this.cmbTeacher.TabIndex = 3;
@@ -90,7 +88,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(511, 465);
+            this.btnCreate.Location = new System.Drawing.Point(513, 412);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(96, 23);
             this.btnCreate.TabIndex = 5;
@@ -128,7 +126,7 @@
             // lblRole
             // 
             this.lblRole.AutoSize = true;
-            this.lblRole.Location = new System.Drawing.Point(128, 391);
+            this.lblRole.Location = new System.Drawing.Point(130, 338);
             this.lblRole.Name = "lblRole";
             this.lblRole.Size = new System.Drawing.Size(47, 13);
             this.lblRole.TabIndex = 9;
@@ -137,7 +135,7 @@
             // lblTeacher
             // 
             this.lblTeacher.AutoSize = true;
-            this.lblTeacher.Location = new System.Drawing.Point(128, 333);
+            this.lblTeacher.Location = new System.Drawing.Point(130, 280);
             this.lblTeacher.Name = "lblTeacher";
             this.lblTeacher.Size = new System.Drawing.Size(59, 13);
             this.lblTeacher.TabIndex = 10;
@@ -159,15 +157,6 @@
             this.notifyFail.Text = "Thất Bại";
             this.notifyFail.Visible = true;
             // 
-            // cmbKhoa
-            // 
-            this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(240, 278);
-            this.cmbKhoa.Name = "cmbKhoa";
-            this.cmbKhoa.Size = new System.Drawing.Size(365, 21);
-            this.cmbKhoa.TabIndex = 11;
-            this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -177,23 +166,12 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Tạo tài khoản";
             // 
-            // lblKhoa
-            // 
-            this.lblKhoa.AutoSize = true;
-            this.lblKhoa.Location = new System.Drawing.Point(128, 281);
-            this.lblKhoa.Name = "lblKhoa";
-            this.lblKhoa.Size = new System.Drawing.Size(32, 13);
-            this.lblKhoa.TabIndex = 13;
-            this.lblKhoa.Text = "Khoa";
-            // 
             // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.lblKhoa);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbKhoa);
             this.Controls.Add(this.lblTeacher);
             this.Controls.Add(this.lblRole);
             this.Controls.Add(this.lblConfirmPass);
@@ -229,8 +207,6 @@
         private System.Windows.Forms.Label lblTeacher;
         private System.Windows.Forms.NotifyIcon notifySuccess;
         private System.Windows.Forms.NotifyIcon notifyFail;
-        private System.Windows.Forms.ComboBox cmbKhoa;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblKhoa;
     }
 }

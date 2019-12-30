@@ -31,6 +31,7 @@ namespace QLDSV
             cmbKhoa.DisplayMember = "TENKHOA";
             cmbKhoa.ValueMember = "TENSERVER";
             cmbKhoa.SelectedIndex = 0;
+            Program.servername = cmbKhoa.SelectedValue.ToString();
         }
 
 
@@ -75,13 +76,19 @@ namespace QLDSV
             }
             Program.myReader.Close();
             Program.conn.Close();
+               
             //DialogResult dialog = MessageBox.Show("Giáo Viên: " + Program.mHoten + "\t-\tKhoa: " + Program.mGroup, "", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                Close();
+
+            }
         }
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)

@@ -70,5 +70,11 @@ namespace QLDSV.ptit.qldsv.service
             cmb.ValueMember = valueMember;
             cmb.SelectedIndex = 0;
         }
+        public static DataTable queryDataByOneCondition(string tableName, string columnConditionName, string valueCondition)
+        {
+            DataTable dt = new DataTable();
+            dt = Program.ExecSqlDataTable("SELECT * FROM " + tableName + " WHERE " + columnConditionName + " = '"+valueCondition+"'");
+            return dt;
+        }
     }
 }

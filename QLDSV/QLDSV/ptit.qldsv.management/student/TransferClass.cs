@@ -24,7 +24,9 @@ namespace QLDSV.ptit.qldsv.management.student
 
         private void TransferClass_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dS_QLDSV.LOP' table. You can move, or remove it, as needed.
             
+            dS_QLDSV.EnforceConstraints = false;
             cmbKhoaFormChuyenLop.DataSource = Program.bds_dspm;
             if (cmbKhoaFormChuyenLop.DataSource != null)
             {
@@ -64,12 +66,15 @@ namespace QLDSV.ptit.qldsv.management.student
             if (!cmbClass.SelectedValue.ToString().Equals(""))
             {
                 DataRowView drow = (DataRowView)cmbClass.SelectedItem;
-                maLop = drow.Row.Field<String>("MALOP");
+                maLop = drow.Row.Field<string>("MALOP");
             }
+           
             SqlDataReader myReader = null;
-            string sql = "SP_CHUYENLOP '" + Program.curStudent.StudentId + "','" + maLop+ "'";
+            string sql = "EXEC dbo.SP_CHUYENLOP '" + Program.curStudent.StudentId + "','" + maLop+ "'";
             try
             {
+                string connectionString = "Data Source=JAXZ;Initial Catalog=QLDSV;Persist Security Info=True;User ID=sa;Password=1234";
+                Program.conn.ConnectionString = connectionString;
                 myReader = Program.ExecSqlDataReader(sql);
                 if (myReader == null)
                 {
@@ -85,6 +90,11 @@ namespace QLDSV.ptit.qldsv.management.student
                 this.notifyFail.ShowBalloonTip(1500);
                 return;
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

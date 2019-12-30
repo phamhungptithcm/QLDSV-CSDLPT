@@ -105,7 +105,11 @@ namespace QLDSV
             pKT.RoleName = "Phòng Kế Toán";
             roles.Add(pGV);
             roles.Add(khoa);
-            roles.Add(pKT);
+            if(mGroup == HelperCommon.PKT)
+            {
+                roles.Add(pKT);
+            }
+            
             return roles;
         }
         public static DataTable ExecSqlDataTable(String cmd)

@@ -85,7 +85,6 @@
             this.barDockControl6 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl7 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl8 = new DevExpress.XtraBars.BarDockControl();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtMASV = new DevExpress.XtraEditors.TextEdit();
             this.txtHo = new DevExpress.XtraEditors.TextEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
@@ -98,6 +97,7 @@
             this.cmbClass = new System.Windows.Forms.ComboBox();
             this.grbStudentInfor = new System.Windows.Forms.GroupBox();
             this.ckbGender = new DevExpress.XtraEditors.CheckEdit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.notifySuccess = new System.Windows.Forms.NotifyIcon(this.components);
             this.notifyFail = new System.Windows.Forms.NotifyIcon(this.components);
             lblMASV = new System.Windows.Forms.Label();
@@ -120,7 +120,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
@@ -133,6 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkNghiHoc.Properties)).BeginInit();
             this.grbStudentInfor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckbGender.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMASV
@@ -422,7 +422,7 @@
             this.sINHVIENGridControl.MainView = this.gridView1;
             this.sINHVIENGridControl.MenuManager = this.barManager1;
             this.sINHVIENGridControl.Name = "sINHVIENGridControl";
-            this.sINHVIENGridControl.Size = new System.Drawing.Size(1930, 220);
+            this.sINHVIENGridControl.Size = new System.Drawing.Size(1930, 386);
             this.sINHVIENGridControl.TabIndex = 9;
             this.sINHVIENGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -604,16 +604,6 @@
             this.barDockControl8.Manager = this.barManager3;
             this.barDockControl8.Size = new System.Drawing.Size(0, 1068);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(7, 121);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(500, 427);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // txtMASV
             // 
             this.txtMASV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.sINHVIENBindingSource, "MASV", true));
@@ -736,9 +726,9 @@
             this.grbStudentInfor.Controls.Add(this.txtMASV);
             this.grbStudentInfor.Controls.Add(this.pictureBox1);
             this.grbStudentInfor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbStudentInfor.Location = new System.Drawing.Point(0, 278);
+            this.grbStudentInfor.Location = new System.Drawing.Point(0, 444);
             this.grbStudentInfor.Name = "grbStudentInfor";
-            this.grbStudentInfor.Size = new System.Drawing.Size(1930, 790);
+            this.grbStudentInfor.Size = new System.Drawing.Size(1930, 624);
             this.grbStudentInfor.TabIndex = 41;
             this.grbStudentInfor.TabStop = false;
             this.grbStudentInfor.Text = "Thông tin sinh viên";
@@ -753,6 +743,16 @@
             this.ckbGender.Size = new System.Drawing.Size(75, 19);
             this.ckbGender.TabIndex = 25;
             this.ckbGender.CheckedChanged += new System.EventHandler(this.ckbGender_CheckedChanged);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(76, 70);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 250);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // notifySuccess
             // 
@@ -804,7 +804,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.v_DS_PHANMANHBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMASV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
@@ -818,6 +817,7 @@
             this.grbStudentInfor.ResumeLayout(false);
             this.grbStudentInfor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckbGender.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -882,8 +882,8 @@
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.TextEdit txtHo;
         private DevExpress.XtraEditors.TextEdit txtMASV;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.NotifyIcon notifySuccess;
         private System.Windows.Forms.NotifyIcon notifyFail;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

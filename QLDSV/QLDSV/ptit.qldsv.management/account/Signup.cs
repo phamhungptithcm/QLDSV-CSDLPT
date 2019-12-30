@@ -24,20 +24,14 @@ namespace QLDSV.ptit.qldsv.management.account
 
         private void Signup_Load(object sender, EventArgs e)
         {
+            
             try
             {
-                this.initDataForCmbKhoa();
-                
                 this.initDataForCmbTeacher();
                 cmbRole.DataSource = Program.initLisRole();
                 cmbRole.DisplayMember = "RoleName";
                 cmbRole.ValueMember = "RoleId";
                 continueActionByRole();
-                if (HelperCommon.PGV != Program.mGroup)
-                {
-                    cmbRole.Enabled = false;
-                    cmbKhoa.Enabled = false;
-                }
             }
             catch (Exception) { }
         }
@@ -79,7 +73,7 @@ namespace QLDSV.ptit.qldsv.management.account
                 accountInfo.Password = password.Trim();
                 accountInfo.Magv = magv.Trim();
                 accountInfo.Role = role.Trim();
-                string sql = "SP_CREATEANEWACCOUNT '"+username+"','" +password+ "','"+magv+"','"+role+"'";
+                string sql = "EXEC dbo.SP_CREATEANEWACCOUNT '" + username+"','" +password+ "','"+magv+"','"+role+"'";
                 SqlDataReader myReader = null;
             
                 myReader = Program.ExecSqlDataReader(sql);
@@ -100,25 +94,6 @@ namespace QLDSV.ptit.qldsv.management.account
             }
             
         }
-        private void initDataForCmbKhoa()
-        {
-            cmbKhoa.DataSource = Program.bds_dspm;
-            if (cmbKhoa.DataSource != null)
-            {
-                cmbKhoa.DisplayMember = "TENKHOA";
-                cmbKhoa.ValueMember = "TENSERVER";
-                cmbKhoa.SelectedIndex = Program.mKhoa;
-            }
-            if (HelperCommon.PGV.Equals(Program.mGroup.Trim()))
-            {
-                cmbKhoa.Enabled = true;
-            }
-            else
-            {
-                cmbKhoa.Enabled = false;
-            }
-        }
-        
         private void initDataForCmbTeacher()
         {
             DataTable dt = new DataTable();
@@ -134,13 +109,6 @@ namespace QLDSV.ptit.qldsv.management.account
 
         }
 
-        private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (HelperCommon.getListKhoa(cmbKhoa))
-            {
-                this.initDataForCmbTeacher();
-            }
-        }
         private void continueActionByRole()
         {
             int rolePositon = 0;
@@ -159,7 +127,10 @@ namespace QLDSV.ptit.qldsv.management.account
                         break;
                 }
                 cmbRole.SelectedIndex = rolePositon;
+                cmbRole.Enabled = false;
             }
+            
         }
+        
     }
 }

@@ -49,8 +49,11 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.notifySuccess = new System.Windows.Forms.NotifyIcon(this.components);
             this.notifyFail = new System.Windows.Forms.NotifyIcon(this.components);
+            this.dS_QLDSV = new QLDSV.DS_QLDSV();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.formTransferClass.SuspendLayout();
             this.grbStudentInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_QLDSV)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbKhoaFormChuyenLop
@@ -64,6 +67,7 @@
             // 
             // formTransferClass
             // 
+            this.formTransferClass.Controls.Add(this.btnCancel);
             this.formTransferClass.Controls.Add(this.cmbClass);
             this.formTransferClass.Controls.Add(this.btnSave);
             this.formTransferClass.Controls.Add(this.lblClass);
@@ -71,7 +75,7 @@
             this.formTransferClass.Controls.Add(this.cmbKhoaFormChuyenLop);
             this.formTransferClass.Location = new System.Drawing.Point(0, 163);
             this.formTransferClass.Name = "formTransferClass";
-            this.formTransferClass.Size = new System.Drawing.Size(786, 397);
+            this.formTransferClass.Size = new System.Drawing.Size(786, 488);
             this.formTransferClass.TabIndex = 4;
             this.formTransferClass.TabStop = false;
             // 
@@ -85,7 +89,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(578, 233);
+            this.btnSave.Location = new System.Drawing.Point(161, 230);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 6;
@@ -222,11 +226,26 @@
             this.notifyFail.Text = "Thất Bại";
             this.notifyFail.Visible = true;
             // 
+            // dS_QLDSV
+            // 
+            this.dS_QLDSV.DataSetName = "DS_QLDSV";
+            this.dS_QLDSV.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(578, 230);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Hủy";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // TransferClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(786, 651);
             this.Controls.Add(this.lblClassId);
             this.Controls.Add(this.lblDayOfBirth);
             this.Controls.Add(this.lblStudentId);
@@ -245,6 +264,7 @@
             this.formTransferClass.PerformLayout();
             this.grbStudentInfo.ResumeLayout(false);
             this.grbStudentInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dS_QLDSV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,5 +291,7 @@
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.NotifyIcon notifySuccess;
         private System.Windows.Forms.NotifyIcon notifyFail;
+        private DS_QLDSV dS_QLDSV;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

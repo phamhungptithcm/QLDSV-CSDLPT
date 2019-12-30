@@ -89,10 +89,20 @@ namespace QLDSV.ptit.qldsv.management.home
         {
             if(Program.mGroup != HelperCommon.PKT)
             {
+                btnManageStudents.PerformClick();
                 btnDongHocPhi.Enabled = false;
+            } else
+            {
+                btnScores.Enabled = false;
+                btnManageStudents.Enabled = false;
+                btnClass.Enabled = false;
+                btnSubjects.Enabled = false;
+                btnDongHocPhi.PerformClick();
             }
+
             barLblCurrName.Caption = Program.mHoten;
-            btnManageStudents.PerformClick();
+            Program.bds_dspm.RemoveAt(2);
+            
         }
 
         private void btnCreateAccount_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -116,6 +126,21 @@ namespace QLDSV.ptit.qldsv.management.home
                 f.MdiParent = this;
                 f.Show();
             }
+        }
+
+        private void btnSignOut_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                Program.mGroup = "";
+                Program.mHoten = "";
+                Close();
+                this.notifySuccess.ShowBalloonTip(1500);
+                Application.Restart();
+                
+            }
+            
         }
     }
 }

@@ -28,6 +28,7 @@
             this.btnCreateAccount = new DevExpress.XtraBars.BarButtonItem();
             this.barLblCurrName = new DevExpress.XtraBars.BarStaticItem();
             this.btnDongHocPhi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSignOut = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -40,6 +41,7 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraHome = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.notifySuccess = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraHome)).BeginInit();
             this.SuspendLayout();
@@ -59,11 +61,13 @@
             this.barButtonItem3,
             this.btnCreateAccount,
             this.barLblCurrName,
-            this.btnDongHocPhi});
+            this.btnDongHocPhi,
+            this.btnSignOut});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 6;
+            this.ribbonControl1.MaxItemId = 7;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageHeaderItemLinks.Add(this.barLblCurrName);
+            this.ribbonControl1.PageHeaderItemLinks.Add(this.btnSignOut);
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2});
@@ -162,12 +166,23 @@
             // 
             this.btnDongHocPhi.Caption = "Đóng Học Phí";
             this.btnDongHocPhi.Id = 5;
-            this.btnDongHocPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnDongHocPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDongHocPhi.ImageOptions.Image")));
             this.btnDongHocPhi.LargeWidth = 100;
             this.btnDongHocPhi.Name = "btnDongHocPhi";
             this.btnDongHocPhi.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.btnDongHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDongHocPhi_ItemClick);
+            // 
+            // btnSignOut
+            // 
+            this.btnSignOut.Caption = "Đăng Xuất";
+            this.btnSignOut.Id = 6;
+            this.btnSignOut.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSignOut.ImageOptions.Image")));
+            this.btnSignOut.Name = "btnSignOut";
+            this.btnSignOut.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.btnSignOut.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.btnSignOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSignOut_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -239,6 +254,14 @@
             // 
             this.xtraHome.MdiParent = this;
             // 
+            // notifySuccess
+            // 
+            this.notifySuccess.BalloonTipText = "QLDSV";
+            this.notifySuccess.BalloonTipTitle = "Đã đăng xuất";
+            this.notifySuccess.Icon = ((System.Drawing.Icon)(resources.GetObject("notifySuccess.Icon")));
+            this.notifySuccess.Text = "Đã đăng xuất";
+            this.notifySuccess.Visible = true;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,5 +306,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.BarButtonItem btnDongHocPhi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarButtonItem btnSignOut;
+        private System.Windows.Forms.NotifyIcon notifySuccess;
     }
 }

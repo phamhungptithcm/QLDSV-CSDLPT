@@ -112,7 +112,6 @@
             // 
             // btnExit
             // 
-            this.btnExit.Enabled = false;
             this.btnExit.Location = new System.Drawing.Point(479, 290);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);

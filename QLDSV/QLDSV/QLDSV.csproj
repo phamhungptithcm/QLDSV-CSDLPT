@@ -54,11 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DS_QLDSV_PKT.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_QLDSV_PKT.xsd</DependentUpon>
-    </Compile>
     <Compile Include="ptit.qldsv.management\account\Signup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,17 +172,6 @@
     </None>
     <None Include="DS_QLDSV.xss">
       <DependentUpon>DS_QLDSV.xsd</DependentUpon>
-    </None>
-    <None Include="DS_QLDSV_PKT.xsc">
-      <DependentUpon>DS_QLDSV_PKT.xsd</DependentUpon>
-    </None>
-    <None Include="DS_QLDSV_PKT.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DS_QLDSV_PKT.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DS_QLDSV_PKT.xss">
-      <DependentUpon>DS_QLDSV_PKT.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
