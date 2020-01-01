@@ -10,21 +10,22 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
 
-namespace QLDSV.ptit.qldsv.management.report
+
+namespace QLDSV.ptit.qldsv.management.inDongHocPhi
 {
-    public partial class FormInput : DevExpress.XtraEditors.XtraForm
+    public partial class FormDongHocPhi : DevExpress.XtraEditors.XtraForm
     {
-        public FormInput()
+        public FormDongHocPhi()
         {
             InitializeComponent();
         }
 
-        private void FormInput_Load(object sender, EventArgs e)
+        private void FormDongHocPhi_Load(object sender, EventArgs e)
         {
             try
             {
                 Program.conn.Close();
-                string connect = "Data Source=DESKTOP-SFRUQ93;Initial Catalog=QLDSV;Persist Security Info=True;User ID=sa;Password=12345";
+                string connect = "Data Source=JAXZ;Initial Catalog=QLDSV;Persist Security Info=True;User ID=sa;Password=1234";
                 Program.conn.ConnectionString = connect;
                 Program.conn.Open();
 
@@ -60,35 +61,19 @@ namespace QLDSV.ptit.qldsv.management.report
 
         }
 
-        private void cmbTENLOP_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = cmbTENLOP.SelectedIndex;
-            if (index != null && index != -1)
-            {
-                btnOK.Enabled = true;
-
-            }
-            else
-            {
-                btnOK.Enabled = false;
-            }
-
-        }
-
         private void btnOK_Click(object sender, EventArgs e)
         {
             string tenlop = cmbTENLOP.SelectedValue.ToString();
             string nienkhoa = cmbNIENKHOA.SelectedItem.ToString();
             int hocki = int.Parse(cmbHOCKI.SelectedItem.ToString());
+
             DongHocPhi inds = new DongHocPhi(tenlop, nienkhoa, hocki);
-            inds.textLOP.Text = cmbTENLOP.Text;
-            inds.textNIENKHOA.Text = cmbNIENKHOA.Text;
-            inds.textHOCKY.Text = cmbHOCKI.Text;
+            inds.lblLOP.Text = cmbTENLOP.Text;
+            inds.lblNIENKHOA.Text = cmbNIENKHOA.Text;
+            inds.lblHOCKI.Text = cmbHOCKI.Text;
             ReportPrintTool print = new ReportPrintTool(inds);
             print.ShowPreviewDialog();
 
         }
-
-      
     }
 }

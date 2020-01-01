@@ -149,10 +149,7 @@ namespace QLDSV.ptit.qldsv.management.scores
                     }
                 } catch (Exception)
                 {
-                    MessageBox.Show("Nhập điểm không đúng định dạng." +
-                            "\nMã sinh viên: " + columView.GetRowCellValue(i, "MASV").ToString().Trim() +
-                            "\nDòng: " + i + 1, "", MessageBoxButtons.OK);
-                    columView.FocusedRowHandle = i;
+                   
                 }
                 
                 
@@ -193,17 +190,15 @@ namespace QLDSV.ptit.qldsv.management.scores
                             return;
                         }
                         sqlConn.Close();
+                        notifySuccess.ShowBalloonTip(1500);
                     }
                 } catch(Exception)
                 {
-                    MessageBox.Show("Ghi điểm không thành công." +
-                            "\nMã sinh viên: " + columView.GetRowCellValue(i, "MASV").ToString().Trim() +
-                            "\nDòng: " + i + 1, "", MessageBoxButtons.OK);
-                    columView.FocusedRowHandle = i;
+                    notifyFail.ShowBalloonTip(1500);
                 }
                 
             }
-            notifySuccess.ShowBalloonTip(1500);
+            
         }
 
         private void btnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

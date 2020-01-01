@@ -23,12 +23,17 @@
             this.btnClass = new DevExpress.XtraBars.BarButtonItem();
             this.btnSubjects = new DevExpress.XtraBars.BarButtonItem();
             this.btnScores = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDongHP = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             this.btnCreateAccount = new DevExpress.XtraBars.BarButtonItem();
             this.barLblCurrName = new DevExpress.XtraBars.BarStaticItem();
             this.btnDongHocPhi = new DevExpress.XtraBars.BarButtonItem();
             this.btnSignOut = new DevExpress.XtraBars.BarButtonItem();
+            this.btnReportHocPhi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDSThiHetMon = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDSSV = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBangDiem = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDHP = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -40,6 +45,8 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraHome = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.notifySuccess = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -57,14 +64,19 @@
             this.btnClass,
             this.btnSubjects,
             this.btnScores,
-            this.barButtonItem2,
+            this.btnDongHP,
             this.barButtonItem3,
             this.btnCreateAccount,
             this.barLblCurrName,
             this.btnDongHocPhi,
-            this.btnSignOut});
+            this.btnSignOut,
+            this.btnReportHocPhi,
+            this.btnDSThiHetMon,
+            this.btnDSSV,
+            this.btnBangDiem,
+            this.btnDHP});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 7;
+            this.ribbonControl1.MaxItemId = 12;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.PageHeaderItemLinks.Add(this.barLblCurrName);
             this.ribbonControl1.PageHeaderItemLinks.Add(this.btnSignOut);
@@ -128,11 +140,11 @@
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.btnScores.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnScores_ItemClick);
             // 
-            // barButtonItem2
+            // btnDongHP
             // 
-            this.barButtonItem2.Caption = "In ds đong học phí";
-            this.barButtonItem2.Id = 6;
-            this.barButtonItem2.Name = "barButtonItem2";
+            this.btnDongHP.Caption = "In ds đong học phí";
+            this.btnDongHP.Id = 6;
+            this.btnDongHP.Name = "btnDongHP";
             // 
             // barButtonItem3
             // 
@@ -184,6 +196,51 @@
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.btnSignOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSignOut_ItemClick);
             // 
+            // btnReportHocPhi
+            // 
+            this.btnReportHocPhi.Caption = "Phiếu Điểm";
+            this.btnReportHocPhi.Id = 7;
+            this.btnReportHocPhi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReportHocPhi.ImageOptions.Image")));
+            this.btnReportHocPhi.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReportHocPhi.ImageOptions.LargeImage")));
+            this.btnReportHocPhi.Name = "btnReportHocPhi";
+            this.btnReportHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReportHocPhi_ItemClick);
+            // 
+            // btnDSThiHetMon
+            // 
+            this.btnDSThiHetMon.Caption = "DS Thi Hết Môn";
+            this.btnDSThiHetMon.Id = 8;
+            this.btnDSThiHetMon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDSThiHetMon.ImageOptions.Image")));
+            this.btnDSThiHetMon.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDSThiHetMon.ImageOptions.LargeImage")));
+            this.btnDSThiHetMon.Name = "btnDSThiHetMon";
+            this.btnDSThiHetMon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSThiHetMon_ItemClick);
+            // 
+            // btnDSSV
+            // 
+            this.btnDSSV.Caption = "DS Sinh Viên";
+            this.btnDSSV.Id = 9;
+            this.btnDSSV.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDSSV.ImageOptions.Image")));
+            this.btnDSSV.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDSSV.ImageOptions.LargeImage")));
+            this.btnDSSV.Name = "btnDSSV";
+            this.btnDSSV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDSSV_ItemClick);
+            // 
+            // btnBangDiem
+            // 
+            this.btnBangDiem.Caption = "Bảng Điểm";
+            this.btnBangDiem.Id = 10;
+            this.btnBangDiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBangDiem.ImageOptions.Image")));
+            this.btnBangDiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBangDiem.ImageOptions.LargeImage")));
+            this.btnBangDiem.Name = "btnBangDiem";
+            this.btnBangDiem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBangDiem_ItemClick);
+            // 
+            // btnDHP
+            // 
+            this.btnDHP.Caption = "Đóng Học Phí";
+            this.btnDHP.Id = 11;
+            this.btnDHP.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDHP.ImageOptions.Image")));
+            this.btnDHP.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDHP.ImageOptions.LargeImage")));
+            this.btnDHP.Name = "btnDHP";
+            this.btnDHP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDHP_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -231,24 +288,36 @@
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2,
             this.ribbonPageGroup6,
-            this.ribbonPageGroup7});
+            this.ribbonPageGroup7,
+            this.ribbonPageGroup10,
+            this.ribbonPageGroup11});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Báo cáo";
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnReportStudent);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnReportHocPhi);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
             // ribbonPageGroup6
             // 
-            this.ribbonPageGroup6.ItemLinks.Add(this.barButtonItem2);
+            this.ribbonPageGroup6.ItemLinks.Add(this.btnDSThiHetMon);
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             // 
             // ribbonPageGroup7
             // 
-            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup7.ItemLinks.Add(this.btnDSSV);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            // 
+            // ribbonPageGroup10
+            // 
+            this.ribbonPageGroup10.ItemLinks.Add(this.btnBangDiem);
+            this.ribbonPageGroup10.Name = "ribbonPageGroup10";
+            // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.ItemLinks.Add(this.btnDHP);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             // 
             // xtraHome
             // 
@@ -287,7 +356,6 @@
         private DevExpress.XtraBars.BarButtonItem btnReportStudent;
         private DevExpress.XtraBars.BarButtonItem btnManageStudents;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraHome;
 
         private DevExpress.XtraBars.BarButtonItem btnClass;
@@ -296,10 +364,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.BarButtonItem btnScores;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarButtonItem btnDongHP;
         private DevExpress.XtraBars.BarButtonItem barButtonItem3;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
 
         private DevExpress.XtraBars.BarButtonItem btnCreateAccount;
         private DevExpress.XtraBars.BarStaticItem barLblCurrName;
@@ -308,5 +374,15 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
         private DevExpress.XtraBars.BarButtonItem btnSignOut;
         private System.Windows.Forms.NotifyIcon notifySuccess;
+        private DevExpress.XtraBars.BarButtonItem btnReportHocPhi;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.BarButtonItem btnDSThiHetMon;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarButtonItem btnDSSV;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.BarButtonItem btnBangDiem;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
+        private DevExpress.XtraBars.BarButtonItem btnDHP;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
     }
 }

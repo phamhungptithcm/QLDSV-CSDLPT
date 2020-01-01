@@ -12,6 +12,7 @@ using QLDSV.ptit.qldsv.service;
 using DevExpress.XtraLayout;
 using System.Diagnostics;
 using DevExpress.XtraGrid.Views.Grid;
+using System.Data.SqlClient;
 
 namespace QLDSV.ptit.qldsv.management.student
 {
@@ -275,7 +276,11 @@ namespace QLDSV.ptit.qldsv.management.student
                 validated = false;
             } else
             {
-                
+                if(!checkMaSValid(masv))
+                {
+                    MessageBox.Show("Mã sinh viên đã tồn tại.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    validated = false;
+                }
             }
             if (ho.Trim() == "" || ho == null)
             {
@@ -340,12 +345,41 @@ namespace QLDSV.ptit.qldsv.management.student
                 ckbGender.Text = "Nữ";
             }
         }
-
-        private void changeDisplayValueGenderAndNghiHoc(object sender)
+        
+        private bool checkMaSValid(string maSV)
         {
-            GridView grvNhapDiem = sender as GridView;
-
-
+            bool result = true;
+            string strLenh = "EXEC SP_KIEMTRAMASINHVIEN @MASV = '" + maSV + "'";
+            SqlDataReader myReader = Program.ExecSqlDataReader(strLenh);
+            if (myReader != null && myReader.HasRows)
+            {
+                result = false;
+            } else
+            {
+                int oldIndex = cmbKhoa.SelectedIndex;
+                if (oldIndex == 0)
+                {
+                    cmbKhoa.SelectedIndex = 1;
+                    Program.servername = cmbKhoa.SelectedValue.ToString();
+                }
+                else
+                {
+                    cmbKhoa.SelectedIndex = 0;
+                    Program.servername = cmbKhoa.SelectedValue.ToString();
+                }
+                if (cmbKhoa.SelectedIndex != oldIndex)
+                {
+                    Program.mlogin = Program.remotelogin;
+                    Program.password = Program.remotepassword;
+                }
+                myReader = Program.ExecSqlDataReader(strLenh);
+                if (myReader != null && myReader.HasRows)
+                {
+                    result = false;
+                }
+                cmbKhoa.SelectedIndex = oldIndex;
+            }
+            return result;
         }
     }
 }

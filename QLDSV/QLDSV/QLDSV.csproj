@@ -33,6 +33,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.1.Export, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.1.UI, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.1.Extensions, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -54,6 +69,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DS_QLDSV.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_QLDSV.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ptit.qldsv.management\account\Signup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,11 +85,6 @@
     </Compile>
     <Compile Include="ptit.qldsv.management\class\Class.Designer.cs">
       <DependentUpon>Class.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DS_QLDSV.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DS_QLDSV.xsd</DependentUpon>
     </Compile>
     <Compile Include="ptit.qldsv.management\account\Login.cs">
       <SubType>Form</SubType>
@@ -85,11 +100,71 @@
     <Compile Include="ptit.qldsv.management\home\Home.designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="ptit.qldsv.management\school-fee\SchoolFee.cs">
+    <Compile Include="ptit.qldsv.management\inBangDiem\FormBangDiem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ptit.qldsv.management\school-fee\SchoolFee.designer.cs">
-      <DependentUpon>SchoolFee.cs</DependentUpon>
+    <Compile Include="ptit.qldsv.management\inBangDiem\FormBangDiem.Designer.cs">
+      <DependentUpon>FormBangDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inBangDiem\InBangDiemHetMon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inBangDiem\InBangDiemHetMon.Designer.cs">
+      <DependentUpon>InBangDiemHetMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inDongHocPhi\DongHocPhi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inDongHocPhi\DongHocPhi.Designer.cs">
+      <DependentUpon>DongHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inDongHocPhi\FormDongHocPhi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inDongHocPhi\FormDongHocPhi.Designer.cs">
+      <DependentUpon>FormDongHocPhi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inDSSV\FormInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inDSSV\FormInput.Designer.cs">
+      <DependentUpon>FormInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inDSSV\FormReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inDSSV\FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inDSThiHetMon\FormNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inDSThiHetMon\FormNhap.Designer.cs">
+      <DependentUpon>FormNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inDSThiHetMon\ReportDSThiHetMon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inDSThiHetMon\ReportDSThiHetMon.Designer.cs">
+      <DependentUpon>ReportDSThiHetMon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inPhieuDiem\FormPhieuDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inPhieuDiem\FormPhieuDiem.Designer.cs">
+      <DependentUpon>FormPhieuDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inPhieuDiem\ReportPhieuDiem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\inPhieuDiem\ReportPhieuDiem.Designer.cs">
+      <DependentUpon>ReportPhieuDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\school-fee\SchooFee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ptit.qldsv.management\school-fee\SchooFee.Designer.cs">
+      <DependentUpon>SchooFee.cs</DependentUpon>
     </Compile>
     <Compile Include="ptit.qldsv.management\scores\Scores.cs">
       <SubType>Form</SubType>
@@ -118,18 +193,6 @@
     <Compile Include="ptit.qldsv.management\subjects\Subjects.Designer.cs">
       <DependentUpon>Subjects.cs</DependentUpon>
     </Compile>
-<Compile Include="ptit.qldsv.management\report\DongHocPhi.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ptit.qldsv.management\report\DongHocPhi.Designer.cs">
-      <DependentUpon>DongHocPhi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ptit.qldsv.management\report\FormInput.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ptit.qldsv.management\report\FormInput.Designer.cs">
-      <DependentUpon>FormInput.cs</DependentUpon>
-    </Compile>
     <Compile Include="ptit.qldsv.service\HelperCommon.cs" />
     <Compile Include="ptit.qldsv.service\StudentService.cs" />
     <Compile Include="QLDSV_MAIN.Designer.cs">
@@ -139,6 +202,36 @@
     </Compile>
     <EmbeddedResource Include="ptit.qldsv.management\account\Signup.resx">
       <DependentUpon>Signup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ptit.qldsv.management\inBangDiem\FormBangDiem.resx">
+      <DependentUpon>FormBangDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ptit.qldsv.management\inBangDiem\InBangDiemHetMon.resx">
+      <DependentUpon>InBangDiemHetMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ptit.qldsv.management\inDongHocPhi\DongHocPhi.resx">
+      <DependentUpon>DongHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ptit.qldsv.management\inDongHocPhi\FormDongHocPhi.resx">
+      <DependentUpon>FormDongHocPhi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ptit.qldsv.management\inDSSV\FormInput.resx">
+      <DependentUpon>FormInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ptit.qldsv.management\inDSSV\FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ptit.qldsv.management\inDSThiHetMon\FormNhap.resx">
+      <DependentUpon>FormNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ptit.qldsv.management\inDSThiHetMon\ReportDSThiHetMon.resx">
+      <DependentUpon>ReportDSThiHetMon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ptit.qldsv.management\inPhieuDiem\FormPhieuDiem.resx">
+      <DependentUpon>FormPhieuDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ptit.qldsv.management\inPhieuDiem\ReportPhieuDiem.resx">
+      <DependentUpon>ReportPhieuDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ptit.qldsv.management\class\Class.resx">
       <DependentUpon>Class.cs</DependentUpon>
@@ -159,8 +252,8 @@
     <EmbeddedResource Include="ptit.qldsv.management\home\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ptit.qldsv.management\school-fee\SchoolFee.resx">
-      <DependentUpon>SchoolFee.cs</DependentUpon>
+    <EmbeddedResource Include="ptit.qldsv.management\school-fee\SchooFee.resx">
+      <DependentUpon>SchooFee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ptit.qldsv.management\scores\Scores.resx">
       <DependentUpon>Scores.cs</DependentUpon>
@@ -209,6 +302,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

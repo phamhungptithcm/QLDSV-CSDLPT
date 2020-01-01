@@ -13,6 +13,12 @@ using System.Windows.Forms;
 using QLDSV.ptit.qldsv.management.account;
 using QLDSV.ptit.qldsv.service;
 using QLDSV.ptit.qldsv.management.school_fee;
+using QLDSV.ptit.qldsv.management.inPhieuDiem;
+
+using QLDSV.ptit.qldsv.management.inDSThiHetMon;
+using QLDSV.ptit.qldsv.management.inDSSV;
+using QLDSV.ptit.qldsv.management.inBangDiem;
+using QLDSV.ptit.qldsv.management.inDongHocPhi;
 
 namespace QLDSV.ptit.qldsv.management.home
 {
@@ -118,11 +124,11 @@ namespace QLDSV.ptit.qldsv.management.home
 
         private void btnDongHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form schoolFee = this.CheckExists(typeof(SchoolFee));
+            Form schoolFee = this.CheckExists(typeof(SchooFee));
             if (schoolFee != null) schoolFee.Activate();
             else
             {
-                SchoolFee f = new SchoolFee();
+                SchooFee f = new SchooFee();
                 f.MdiParent = this;
                 f.Show();
             }
@@ -141,6 +147,70 @@ namespace QLDSV.ptit.qldsv.management.home
                 
             }
             
+        }
+
+        private void btnReportHocPhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form inPhieuDiem = this.CheckExists(typeof(FormPhieuDiem));
+            if (inPhieuDiem != null) inPhieuDiem.Activate();
+            else
+            {
+                FormPhieuDiem f = new FormPhieuDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDSThiHetMon_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form inDSThiHetMon = this.CheckExists(typeof(FormNhap));
+            if (inDSThiHetMon != null) inDSThiHetMon.Activate();
+            else
+            {
+                FormNhap f = new FormNhap();
+                f.MdiParent = this;
+                f.Show();
+            }
+
+        }
+
+        private void btnDSSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form inDSSV = this.CheckExists(typeof(FormInput));
+            if (inDSSV != null) inDSSV.Activate();
+            else
+            {
+                FormInput f = new FormInput();
+                f.MdiParent = this;
+                f.Show();
+            }
+
+        }
+
+        private void btnBangDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form inBangDiem = this.CheckExists(typeof(FormBangDiem));
+            if (inBangDiem != null) inBangDiem.Activate();
+            else
+            {
+                FormBangDiem f = new FormBangDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
+
+        }
+
+        private void btnDHP_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form inDongHocPhi = this.CheckExists(typeof(FormDongHocPhi));
+            if (inDongHocPhi != null) inDongHocPhi.Activate();
+            else
+            {
+                FormDongHocPhi f = new FormDongHocPhi();
+                f.MdiParent = this;
+                f.Show();
+            }
+
         }
     }
 }

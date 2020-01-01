@@ -76,5 +76,27 @@ namespace QLDSV.ptit.qldsv.service
             dt = Program.ExecSqlDataTable("SELECT * FROM " + tableName + " WHERE " + columnConditionName + " = '"+valueCondition+"'");
             return dt;
         }
+        public static string getStringValueFromBDS(BindingSource bindingSource, string fieldName)
+        {
+            string result = "";
+            try
+            {
+                DataRow drow = HelperCommon.getDataRowFromBindingSource(bindingSource);
+                result = drow.Field<string>(fieldName);
+            }
+            catch (Exception) { }
+            return result;
+        }
+        public static int geIntValueFromBDS(BindingSource bindingSource, string fieldName)
+        {
+            int result = 0;
+            try
+            {
+                DataRow drow = HelperCommon.getDataRowFromBindingSource(bindingSource);
+                result = drow.Field<int>(fieldName);
+            }
+            catch (Exception) { }
+            return result;
+        }
     }
 }

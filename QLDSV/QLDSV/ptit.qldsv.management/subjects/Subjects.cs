@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using QLDSV.ptit.qldsv.service;
 
 namespace QLDSV.ptit.qldsv.management.subjects
 {
@@ -34,23 +35,10 @@ namespace QLDSV.ptit.qldsv.management.subjects
             try
             {
                 this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
-                cmbKHOA.DataSource = Program.bds_dspm;
                 this.mONHOCTableAdapter.Fill(this.dS_QLDSV.MONHOC);
 
-                if(cmbKHOA.DataSource != null)
+                if (!HelperCommon.PGV.Equals(Program.mGroup.Trim()))
                 {
-
-                    cmbKHOA.DisplayMember = "TENKHOA";
-                    cmbKHOA.ValueMember = "TENSERVER";
-                    cmbKHOA.SelectedIndex = Program.mKhoa;
-                }
-                if ("PGV".Equals(Program.mGroup.Trim()))
-                {
-                    cmbKHOA.Enabled = true;
-                }
-                else
-                {
-                    cmbKHOA.Enabled = false;
                     btnAdd.Enabled = false;
                     btnDelete.Enabled = false;
                     btnRepair.Enabled = false;
@@ -68,39 +56,7 @@ namespace QLDSV.ptit.qldsv.management.subjects
 
         }
 
-        private void cmbKHOA_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!cmbKHOA.SelectedValue.ToString().Equals(""))
-            {
-                DataRowView drow = (DataRowView)cmbKHOA.SelectedItem;
-                String servername = drow.Row.Field<String>("TENSERVER");
-                Program.servername = servername;
-
-                if (cmbKHOA.SelectedIndex != Program.mKhoa)
-                {
-                    Program.mlogin = Program.remotelogin;
-                    Program.password = Program.remotepassword;
-                }
-                else
-                {
-                    Program.mlogin = Program.mloginDN;
-                    Program.password = Program.passwordDN;
-                }
-
-                if (Program.KetNoi() == 0)
-                {
-                    MessageBox.Show("That bai.!", "", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.mONHOCTableAdapter.Fill(this.dS_QLDSV.MONHOC);
-
-
-                }
-            }
-        }
-
+    
         private void btnAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             btnWritethe.Enabled = true;
@@ -178,5 +134,6 @@ namespace QLDSV.ptit.qldsv.management.subjects
             bds_MONHOC.Position = vitri;
             groupBox2.Enabled = false;
         }
+        
     }
 }
